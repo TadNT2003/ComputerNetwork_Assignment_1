@@ -11,7 +11,7 @@ SERVER_DATABASE = {}
 # Handle client request process
 def request_listen(conn: socket.socket, host):
     request = conn.recv(1024).decode().split("*")
-    print(request)
+    # Publish command
     if request[0] == "publish":
         file_name = request[2]
         # Check file in client local repo
@@ -19,11 +19,27 @@ def request_listen(conn: socket.socket, host):
             conn.send("File already in local repo".encode())
         else:
             conn.send("Continue".encode())
-        # Add file name to server database
-        SERVER_DATABASE[host].append(file_name)
-        print(SERVER_DATABASE)
+            # Add file name to server database
+            SERVER_DATABASE[host].append(file_name)
+            print(SERVER_DATABASE)
+    # Fetch command
     elif request[0] == "fetch":
-        filename = request[1]
+        file_name = request[1]
+        # Check file in client local repo
+        if file_name in SERVER_DATABASE[host]:
+            conn.send("File already in local repo".encode())
+        else:
+            # conn.send("Continue".encode())
+            # Find the client with the file
+            found = False
+            for i in SERVER_DATABASE:
+                if file_name in SERVER_DATABASE[i]:
+                    conn.send(str(i).encode())
+                    found = True
+                    break
+            if not found:
+                # If cannot find file in DB
+                conn.send("File not recognize".encode())
     elif request[0] == "delete":
         filename = request[1]
     elif request[0] == "discover":
@@ -41,12 +57,11 @@ def client_listening(host, port):
         # If client have never connected to server before
         if not client_host[0] in SERVER_DATABASE:
             SERVER_DATABASE[client_host[0]] = []
-        print(SERVER_DATABASE)
-        file_received = Thread(target=request_listen, args=(client_conn, client_host[0]))
-        file_received.start()
+        request_handle = Thread(target=request_listen, args=(client_conn, client_host[0]))
+        request_handle.start()
 
 
 if __name__ == "__main__":
-    print(SERVER_FULLHOST)
+    # print(SERVER_FULLHOST)
     Main_Socket = Thread(target=client_listening, args=(SERVER_HOST, SERVER_PORT))
     Main_Socket.start()

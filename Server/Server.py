@@ -8,6 +8,20 @@ SERVER_PORT = 5000
 SERVER_DATABASE = {}
 
 
+# Server discover command
+def discover(hostname: str) -> str:
+    return_value: str
+    if hostname in SERVER_DATABASE:
+        if len(SERVER_DATABASE[hostname]) == 0:
+            return_value = f"{hostname} has not published any files"
+        else:
+            return_value = str(SERVER_DATABASE[hostname])
+    else:
+        return_value = "Host not recognize"
+    # print(return_value)
+    return return_value
+
+
 # Handle client request process
 def request_listen(conn: socket.socket, host):
     request = conn.recv(1024).decode().split("*")
@@ -45,10 +59,30 @@ def request_listen(conn: socket.socket, host):
                 # Add file name to server database
                 SERVER_DATABASE[host].append(file_name)
                 print(SERVER_DATABASE)
+    # Delete command
     elif request[0] == "delete":
-        filename = request[1]
+        file_name = request[1]
+        # Check file in client local repo
+        if file_name in SERVER_DATABASE[host]:
+            SERVER_DATABASE[host].remove(file_name)
+            conn.send("Delete successfully".encode())
+        else:
+            conn.send("Cannot delete! File not in local repo".encode())
+    # Discover command
     elif request[0] == "discover":
         hostname = request[1]
+        dis_result = discover(hostname)
+        conn.send(dis_result.encode())
+    # List client command
+    elif request[0] == "list":
+        client_list = ""
+        for i in SERVER_DATABASE:
+            if client_list != "":
+                client_list = client_list + "*" + str(i)
+            else:
+                client_list = str(i)
+        conn.send(client_list.encode())
+
 
 
 # Listen to client on server's socket

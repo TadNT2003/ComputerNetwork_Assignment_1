@@ -124,6 +124,47 @@ def fetch(fname: str, scrap):
     server_connect.close()
 
 
+def delete(fname: str, scrap):
+    # Initialize connection to server
+    server_connect = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    server_connect.connect((SERVER_HOST, SERVER_PORT))
+    request = "delete" + "*" + fname
+    server_connect.send(request.encode())
+    # Waiting for server to check file in local repo
+    while True:
+        check_local = server_connect.recv(1024).decode()
+        if check_local:
+            break
+    # Print operation result
+    print(check_local)
+    # Close socket
+    server_connect.close()
+
+
+def discover(hostname: str, scrap):
+    # Initialize connection to server
+    server_connect = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    server_connect.connect((SERVER_HOST, SERVER_PORT))
+    request = "discover" + "*" + hostname
+    server_connect.send(request.encode())
+    # Waiting for server discover result
+    while True:
+        dis_result = server_connect.recv(1024).decode()
+        if dis_result:
+            break
+    print(dis_result)
+
+
+def list_client(scrap, filler):
+    # Initialize connection to server
+    server_connect = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    server_connect.connect((SERVER_HOST, SERVER_PORT))
+    request = "list"
+    server_connect.send(request.encode())
+    client_list = server_connect.recv(1024).decode().split("*")
+    print(client_list)
+
+
 def client_listening(host, port):
     listening_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     # Linux client bind with "" host so don't need own host, Window client bind with its own host IP

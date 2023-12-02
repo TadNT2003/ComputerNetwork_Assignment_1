@@ -14,6 +14,7 @@ def request_listen(conn: socket.socket, host):
     # Publish command
     if request[0] == "publish":
         file_name = request[2]
+        print(file_name)
         # Check file in client local repo
         if file_name in SERVER_DATABASE[host]:
             conn.send("File already in local repo".encode())
@@ -40,6 +41,10 @@ def request_listen(conn: socket.socket, host):
             if not found:
                 # If cannot find file in DB
                 conn.send("File not recognize".encode())
+            else: # Publish the file to server DB of requested client
+                # Add file name to server database
+                SERVER_DATABASE[host].append(file_name)
+                print(SERVER_DATABASE)
     elif request[0] == "delete":
         filename = request[1]
     elif request[0] == "discover":

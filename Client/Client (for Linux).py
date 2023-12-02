@@ -6,7 +6,7 @@ BUFFER_SIZE = 4096
 SERVER_HOST = "192.168.31.48"
 SERVER_PORT = 5000
 # Linux client will update host down the line, while Window user can get it right now
-CLIENT_HOST = socket.gethostbyname_ex(socket.gethostname())[2][2]
+CLIENT_HOST = socket.gethostbyname(socket.gethostname())
 CLIENT_PORT = 15000
 
 
@@ -47,7 +47,7 @@ def publish(lname: str, fname: str):
     CLIENT_HOST = server_connect.getsockname()[0]
     # Linux client use "/", Window client use "\\"
     if lname != "":
-        full_filename = lname + "\\" + fname
+        full_filename = lname + "/" + fname
     else:
         full_filename = fname
     # print(full_filename)
@@ -127,7 +127,7 @@ def fetch(fname: str, scrap):
 def client_listening(host, port):
     listening_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     # Linux client bind with "" host so don't need own host, Window client bind with its own host IP
-    listening_socket.bind((host, port))
+    listening_socket.bind(("", port))
     listening_socket.listen(10)
     while True:
         client_conn, client_host = listening_socket.accept()
@@ -155,11 +155,11 @@ if __name__ == "__main__":
     listening_thread = Thread(target=client_listening, args=(CLIENT_HOST, CLIENT_PORT))
     listening_thread.start()
 
-    file_path = r"C:\Users\Admin\OneDrive\Pictures\Elden Ring"
-    file_name = "First ending - Age of Stars.png"
+    file_path = r"/home/ntdat/Downloads"
+    file_name = "KGV_sisters.jpg"
     test_publish = Thread(target=publish, args=(file_path, file_name))
     test_publish.start()
 
-    # file_name = "First ending - Age of Stars.png"
-    # test_fetch = Thread(target=fetch, args=(file_name, 1))
-    # test_fetch.start()
+    file_name = "First ending - Age of Stars.png"
+    test_fetch = Thread(target=fetch, args=(file_name, 1))
+    test_fetch.start()

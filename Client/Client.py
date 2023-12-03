@@ -30,14 +30,38 @@ def receive_file(conn, fname):
         while True:
             # Receive file from client that send it
             bytes_read = conn.recv(BUFFER_SIZE)
+            # print("Receiving")
             # If end of file
             if not bytes_read:
                 break
             # Write it on local file
             received_file.write(bytes_read)
         # Ensure to write the file directly to disk
+        # print("Receive complete")
         received_file.flush()
         os.fsync(received_file.fileno())
+
+
+def send_fetch_file(client_conn: socket.socket, listening_socket: socket.socket, port):
+    # Receive fetch file from requested client
+    reply = client_conn.recv(1024).decode()
+    # Send file
+    with open(reply, "rb") as fetched_file:
+        while True:
+            # Read file with a buffer size
+            bytes_read = fetched_file.read(BUFFER_SIZE)
+            # If end of file
+            if not bytes_read:
+                break
+            # Sent to other client
+            client_conn.sendall(bytes_read)
+        # Close requested client socket and target client socket temporary
+        client_conn.close()
+        # listening_socket.close()
+        # # Open up again
+        # listening_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        # listening_socket.bind(("", port))
+        # listening_socket.listen(10)
 
 
 def publish(lname: str, fname: str):
@@ -129,6 +153,7 @@ def fetch(fname: str, scrap):
         else:
             receive_file(target_socket, fname)
             CLIENT_COMMAND_OUT = "File fetch from target client successfully!"
+            # print(CLIENT_COMMAND_OUT)
         # Close socket to target client
         target_socket.close()
     # Close socket to server
@@ -192,18 +217,27 @@ def client_listening(host, port):
             file_receive = Thread(target=receive_file, args=(client_conn, ""))
             file_receive.start()
         else:  # Connect from other clients
-            # Receive fetch file from requested client
-            reply = client_conn.recv(1024).decode()
-            # Send file
-            with open(reply, "rb") as fetched_file:
-                while True:
-                    # Read file with a buffer size
-                    bytes_read = fetched_file.read(BUFFER_SIZE)
-                    # If end of file
-                    if not bytes_read:
-                        break
-                    # Sent to other client
-                    client_conn.send(bytes_read)
+            # # Receive fetch file from requested client
+            # reply = client_conn.recv(1024).decode()
+            # # Send file
+            # with open(reply, "rb") as fetched_file:
+            #     while True:
+            #         # Read file with a buffer size
+            #         bytes_read = fetched_file.read(BUFFER_SIZE)
+            #         # If end of file
+            #         if not bytes_read:
+            #             break
+            #         # Sent to other client
+            #         client_conn.sendall(bytes_read)
+            #     # Close requested client socket and target client socket temporary
+            #     client_conn.close()
+            #     listening_socket.close()
+            #     # Open up again
+            #     listening_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            #     listening_socket.bind(("", port))
+            #     listening_socket.listen(10)
+            fetch_file = Thread(target=send_fetch_file, args=(client_conn, listening_socket, port))
+            fetch_file.start()
 
 
 # Use for handling command

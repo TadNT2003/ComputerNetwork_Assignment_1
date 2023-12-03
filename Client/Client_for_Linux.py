@@ -42,7 +42,7 @@ def receive_file(conn, fname):
         os.fsync(received_file.fileno())
 
 
-def send_fetch_file(client_conn: socket.socket, listening_socket: socket.socket, host):
+def send_fetch_file(client_conn: socket.socket, listening_socket: socket.socket, port):
     # Receive fetch file from requested client
     reply = client_conn.recv(1024).decode()
     # Send file
@@ -55,6 +55,13 @@ def send_fetch_file(client_conn: socket.socket, listening_socket: socket.socket,
                 break
             # Sent to other client
             client_conn.sendall(bytes_read)
+        # Close requested client socket and target client socket temporary
+        client_conn.close()
+        # listening_socket.close()
+        # # Open up again
+        # listening_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        # listening_socket.bind(("", port))
+        # listening_socket.listen(10)
 
 
 def publish(lname: str, fname: str):
@@ -237,7 +244,7 @@ def client_listening(host, port):
             #     listening_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             #     listening_socket.bind(("", port))
             #     listening_socket.listen(10)
-            fetch_file = Thread(target=send_fetch_file, args=(client_conn, listening_socket, host))
+            fetch_file = Thread(target=send_fetch_file, args=(client_conn, listening_socket, port))
             fetch_file.start()
 
 

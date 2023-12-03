@@ -60,7 +60,7 @@ def request_listen(conn: socket.socket, host):
             else:  # Publish the file to server DB of requested client
                 # Add file name to server database
                 SERVER_DATABASE[host].append(file_name)
-                print(SERVER_DATABASE)
+                # print(SERVER_DATABASE)
     # Delete command
     elif request[0] == "delete":
         file_name = request[1]
@@ -131,8 +131,10 @@ def command_listening(host, port):
 
 if __name__ == "__main__":
     # print(SERVER_FULLHOST)
+    # Thread for listening to client
     Main_Socket = Thread(target=client_listening, args=(SERVER_HOST, SERVER_PORT))
     Main_Socket.start()
 
+    # Thread for listening to command
     Command_Socket = Thread(target=command_listening, args=(SERVER_HOST, SERVER_COMMAND_PORT))
     Command_Socket.start()

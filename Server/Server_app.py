@@ -1,18 +1,9 @@
-import typer, socket
-from threading import Thread
+import typer, socket, Server
 
 app = typer.Typer()
-SERVER_FULLHOST = socket.gethostbyname_ex(socket.gethostname())
-SERVER_HOST = SERVER_FULLHOST[2][2]
-SERVER_PORT = 5000
-SERVER_COMMAND_PORT = 10000
+SERVER_HOST = Server.SERVER_HOST
+SERVER_COMMAND_PORT = Server.SERVER_COMMAND_PORT
 server_connect = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-
-
-@app.command()
-def main():
-    """This is the CLI for the Server"""
-    print("This is the CLI for the Server. Add help option for more information")
 
 
 @app.command()
@@ -30,6 +21,11 @@ def discover(hostname: str):
         print(command_output)
         # Close socket
         server_connect.close()
+
+
+@app.callback()
+def callback():
+    """Welcome! This is the CLI for the Server of Assignment 1 file-sharing app"""
 
 
 if __name__ == "__main__":

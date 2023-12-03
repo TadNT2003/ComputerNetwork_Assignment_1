@@ -167,7 +167,7 @@ def list_client(scrap, filler):
 
 def client_listening(host, port):
     listening_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    # Linux client bind with "" host so don't need own host, Window client bind with its own host IP
+    # Linux client bind with "" host so don't need to own host, Window client bind with its own host IP
     listening_socket.bind((host, port))
     listening_socket.listen(10)
     while True:

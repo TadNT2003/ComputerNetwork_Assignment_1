@@ -3,10 +3,11 @@ import socket
 from threading import Thread
 
 BUFFER_SIZE = 4096
-SERVER_HOST = "192.168.31.48"
+SERVER_HOST = "192.168.20.198"
 SERVER_PORT = 5000
+SERVER_APP_PORT = 15000
 # Linux client will update host down the line, while Window user can get it right now
-CLIENT_HOST = socket.gethostbyname_ex(socket.gethostname())[2][2]
+CLIENT_HOST = socket.gethostbyname_ex(socket.gethostname())[2][0]
 CLIENT_PORT = 15000
 CLIENT_COMMAND_PORT = 20000
 CLIENT_COMMAND_OUT = ""
@@ -84,7 +85,7 @@ def publish(lname: str, fname: str):
         CLIENT_COMMAND_OUT = "Error: File not exist!"
     else:
         # Send command request to server
-        request = "publish*" + lname + "*" + fname
+        request = str(CLIENT_HOST) + "*" + "publish*" + lname + "*" + fname
         server_connect.send(request.encode())
         # Waiting for server to check file in local repo
         while True:
@@ -127,7 +128,7 @@ def fetch(fname: str, scrap):
     global CLIENT_COMMAND_OUT
     server_connect = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server_connect.connect((SERVER_HOST, SERVER_PORT))
-    request = "fetch" + "*" + fname
+    request = str(CLIENT_HOST) + "*" + "fetch" + "*" + fname
     server_connect.send(request.encode())
     # Waiting for server to check file in local repo
     while True:
@@ -165,7 +166,7 @@ def delete(fname: str, scrap):
     global CLIENT_COMMAND_OUT
     server_connect = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server_connect.connect((SERVER_HOST, SERVER_PORT))
-    request = "delete" + "*" + fname
+    request = str(CLIENT_HOST) + "*" + "delete" + "*" + fname
     server_connect.send(request.encode())
     # Waiting for server to check file in local repo
     while True:
@@ -183,7 +184,7 @@ def discover(hostname: str, scrap):
     global CLIENT_COMMAND_OUT
     server_connect = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server_connect.connect((SERVER_HOST, SERVER_PORT))
-    request = "discover" + "*" + hostname
+    request = str(CLIENT_HOST) + "*" + "discover" + "*" + hostname
     server_connect.send(request.encode())
     # Waiting for server discover result
     while True:
@@ -198,7 +199,7 @@ def list_client(scrap, filler):
     global CLIENT_COMMAND_OUT
     server_connect = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server_connect.connect((SERVER_HOST, SERVER_PORT))
-    request = "list"
+    request = str(CLIENT_HOST) + "*" + "list"
     server_connect.send(request.encode())
     client_list = server_connect.recv(1024).decode().split("*")
     CLIENT_COMMAND_OUT = client_list

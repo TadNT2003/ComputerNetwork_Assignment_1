@@ -1,10 +1,10 @@
-import typer, socket, Client_for_Linux
+import typer, socket, Client_for_Linux, Client
 
 app = typer.Typer()
-SERVER_HOST = Client_for_Linux.SERVER_HOST
-SERVER_PORT = Client_for_Linux.SERVER_PORT
-CLIENT_HOST = Client_for_Linux.CLIENT_HOST
-CLIENT_COMMAND_PORT = Client_for_Linux.CLIENT_COMMAND_PORT
+SERVER_HOST = Client.SERVER_HOST
+SERVER_APP_PORT = Client.SERVER_APP_PORT
+CLIENT_HOST = Client.CLIENT_HOST
+CLIENT_COMMAND_PORT = Client.CLIENT_COMMAND_PORT
 client_connect = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 
@@ -101,8 +101,9 @@ def callback():
 if __name__ == "__main__":
     # Get IP address for Linux client, at this time Client.py have not connected to server yet
     server_connect = socket.socket()
-    server_connect.connect((SERVER_HOST, SERVER_PORT))
+    server_connect.connect((SERVER_HOST, SERVER_APP_PORT))
     CLIENT_HOST = server_connect.getsockname()[0]
+    server_connect.send(CLIENT_HOST.encode())
     # print(CLIENT_HOST)
     server_connect.close()
     # Launch CLI app

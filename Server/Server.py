@@ -6,7 +6,7 @@ SERVER_FULLHOST = socket.gethostbyname_ex(socket.gethostname())
 SERVER_HOST = SERVER_FULLHOST[2][2]
 SERVER_PORT = 5000
 SERVER_COMMAND_PORT = 10000
-SERVER_APP_PORT = 15000
+SERVER_APP_PORT = 5001
 SERVER_COMMAND_OUT = ""
 SERVER_DATABASE = {}
 
@@ -148,7 +148,7 @@ if __name__ == "__main__":
     Main_Socket = Thread(target=client_listening, args=(SERVER_HOST, SERVER_PORT))
     Main_Socket.start()
 
-    #Thread for client app
+    # Thread for client app
     App_Socket = Thread(target=app_connect, args=(SERVER_HOST, SERVER_APP_PORT))
     App_Socket.start()
 

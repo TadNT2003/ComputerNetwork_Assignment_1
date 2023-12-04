@@ -191,20 +191,21 @@
 			Bên cạnh đó, việc fetch một file vào local repository cũng sẽ đồng thời thông báo với server, tức là file tên \textit{fname} có mặt trên ít nhất hai client.
 			\item Thêm câu lệnh \textbf{delete \textit{filename}}: Xóa một file từ local repo ra khỏi hệ thống i.e server sẽ không còn lưu thông tin về file này trên client nữa.
 			Báo lỗi "Cannot delete! File not in local repo!" nếu file đó không nằm trong local repo của client yêu cầu. Tức là một client chỉ có thể xóa một file trong local repo của bản thân.
-			\item Thêm câu lệnh \textbf{discover \textit{hostname}}: chức năng và lưu ý tương tự như với câu lệnh ở bên server.
+			\item Thêm câu lệnh \textbf{discover \textit{hostname}}: Nếu một \textit{hostname} chưa từng kết nối với server từ trước thì báo lỗi "Host not recognize!". Nếu \textit{hostname} đã kết nối nhưng chưa publish bất kì file thì báo "\textit{hostname} has not published any files!".
+			\item Thêm câu lệnh \textbf{list}: In ra danh sách các client đã từng kết nối với server. Khi đó một client kết hợp câu lệnh này với câu lệnh \textbf{discover \textit{hostname}} để tìm được file mình muốn chuyển.
 		\end{itemize}
 		\item Với câu lệnh bên phía server:
 		\begin{itemize}
-			\item Lưu ý của câu lệnh \textbf{discover \textit{hostname}}: Nếu một \textit{hostname} chưa từng kết nối với server từ trước thì báo lỗi "Host not recognize!". Nếu \textit{hostname} đã kết nối nhưng chưa publish bất kì file thì báo "\textit{hostname} has not published any files!".
+			\item Lưu ý của câu lệnh \textbf{discover \textit{hostname}}:Chức năng và lưu ý tương tự như với câu lệnh ở bên client. 
 			\item \textbf{ping \textit{hostname}}: Tương tự như câu lệnh ping trong command prompt, gửi vài packet/message nhỏ đến \textit{hostname} rồi chờ phản hồi.
 		\end{itemize}
 		\item Client sẽ biết trước thông tin kết nối của server.
-		\item Client cần có cơ chế tạo, quản lí nhiều cổng kết nối sử dụng đa luồng để nhiều client có thể kết nối với một client.
+		\item Client cần có cơ chế tạo, quản lí nhiều cổng kết nối sử dụng đa luồng để nhiều client có thể lấy file từ một client cùng lúc.
 		\item Các client không cần liên tục kết nối với server để thực hiện việc truyền file, miễn là vẫn nằm trong cùng một network.
 		\item Server lưu thông tin về các client đã kết nối cũng như các file họ đã publish trong hệ dữ liệu của chính nó (tức là nếu tắt server đi thì dữ liệu này cũng sẽ biến mất).
 		\item Server cũng cần có cơ chế tạo, quản lí nhiều cổng kết nối cùng một lúc.
-		\item Có thể có nhiều bản copy của một file trên nhiều client khác nhau. 
-		\item Hệ thống không nhận diện các file trùng lặp trong local repo của client. Tức là kể cả khi client có nhiều file trùng lặp thì hệ thống chỉ ghi nhận chỉ một file trong local repo. (\textbf{publish \textit{lname fname}} không cho phép file trùng lặp được publish lên server)
+		\item Có thể có nhiều bản copy của một file trên nhiều client khác nhau. Tức là một tên file có thể tồn tại ở nhiều client khác nhau
+		\item Hệ thống không nhận diện các file trùng lặp trong local repo của client. Tức là kể cả khi client có nhiều file trùng lặp thì hệ thống ghi nhận chỉ một file trong local repo. (\textbf{publish \textit{lname fname}} không cho phép file trùng lặp được publish lên server)
 	\end{itemize}
 	
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -229,7 +230,7 @@
 	$\indent$Client sẽ đầu tiên gửi yêu cầu kết nối với server, server sẽ lắng nghe yêu cầu từ một socket đang chạy của mình, thiết lập kết nối giữa client và server. Sau đó, client thực hiện việc publish file lên dữ liệu của server. Kiểm tra tại client file đó có tồn tại không. Nếu có thì tiếp tục use-case, không thì báo lỗi và kết thúc. Sau đó, server sẽ kiểm tra xem client này đã publish file này vào local repo trước đó chưa. Nếu có rồi thì báo lỗi và kết thúc, nếu không thì tiếp tục use-case. Server sẽ thêm file đó vào dữ liệu của mình và client thì thêm file đó vào local repo trên máy. Cuối cùng là đóng kết nối và kết thúc use-case.
 	\begin{figure}[!h]
 		\begin{center}
-			\includegraphics[width=0.6\textwidth]{images/publish_activity_diagram.png}
+			\includegraphics[width=0.5\textwidth]{images/publish_activity_diagram.png}
 			\hspace{\textwidth}
 			\caption{Lược đồ hoạt động của câu lệnh \textbf{publish \textit{lname fname}}}
 			\label{publish_diagram}

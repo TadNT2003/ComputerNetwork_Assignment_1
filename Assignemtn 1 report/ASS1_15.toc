@@ -2,11 +2,11 @@
 \contentsline {section}{\numberline {2}Application specifications and requirements}{2}{section.2}%
 \contentsline {subsection}{\numberline {2.1}Project objectives}{2}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}Project specifications and description}{2}{subsection.2.2}%
-\contentsline {section}{\numberline {3}System modeling and architecture design}{3}{section.3}%
-\contentsline {subsection}{\numberline {3.1}General use-case diagram}{3}{subsection.3.1}%
+\contentsline {section}{\numberline {3}System modeling and architecture design}{4}{section.3}%
+\contentsline {subsection}{\numberline {3.1}General use-case diagram}{4}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}Class diagram}{4}{subsection.3.2}%
 \contentsline {subsection}{\numberline {3.3}Activity diagram main functions}{4}{subsection.3.3}%
-\contentsline {subsubsection}{\numberline {3.3.1}publish \textit {lname fname}}{4}{subsubsection.3.3.1}%
+\contentsline {subsubsection}{\numberline {3.3.1}publish \textit {lname fname}}{5}{subsubsection.3.3.1}%
 \contentsline {subsubsection}{\numberline {3.3.2}fetch \textit {fname}}{5}{subsubsection.3.3.2}%
 \contentsline {subsubsection}{\numberline {3.3.3}delete \textit {fname}}{7}{subsubsection.3.3.3}%
 \contentsline {subsubsection}{\numberline {3.3.4}discover \textit {hostname}}{7}{subsubsection.3.3.4}%

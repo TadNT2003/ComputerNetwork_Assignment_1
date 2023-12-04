@@ -3,9 +3,12 @@ import socket
 from threading import Thread
 
 BUFFER_SIZE = 4096
+# Need to configure everytime server change IP
 SERVER_HOST = "192.168.31.48"
 SERVER_PORT = 5000
+SERVER_APP_PORT = 5001
 # Linux client will update host down the line, while Window user can get it right now
+# Client host set here may not be the IP addr use for connection
 CLIENT_HOST = socket.gethostbyname(socket.gethostname())
 CLIENT_PORT = 15000
 CLIENT_COMMAND_PORT = 20000
@@ -69,7 +72,7 @@ def publish(lname: str, fname: str):
     global published_file, CLIENT_HOST, CLIENT_COMMAND_OUT
     server_connect = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server_connect.connect((SERVER_HOST, SERVER_PORT))
-    # Update true IP use for connection of Linux client
+    # Update true IP use for connection of client
     CLIENT_HOST = server_connect.getsockname()[0]
     # Linux client use "/", Window client use "\\"
     if lname != "":
@@ -84,7 +87,7 @@ def publish(lname: str, fname: str):
         CLIENT_COMMAND_OUT = "Error: File not exist!"
     else:
         # Send command request to server
-        request = "publish*" + lname + "*" + fname
+        request = str(CLIENT_HOST) + "*" + "publish*" + lname + "*" + fname
         server_connect.send(request.encode())
         # Waiting for server to check file in local repo
         while True:
@@ -129,7 +132,7 @@ def fetch(fname: str, scrap):
     server_connect.connect((SERVER_HOST, SERVER_PORT))
     # Update true IP use for connection of Linux client
     CLIENT_HOST = server_connect.getsockname()[0]
-    request = "fetch" + "*" + fname
+    request = str(CLIENT_HOST) + "*" + "fetch" + "*" + fname
     server_connect.send(request.encode())
     # Waiting for server to check file in local repo
     while True:
@@ -167,9 +170,9 @@ def delete(fname: str, scrap):
     global CLIENT_HOST, CLIENT_COMMAND_OUT
     server_connect = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server_connect.connect((SERVER_HOST, SERVER_PORT))
-    # Update true IP use for connection of Linux client
+    # Update true IP use for connection of client
     CLIENT_HOST = server_connect.getsockname()[0]
-    request = "delete" + "*" + fname
+    request = str(CLIENT_HOST) + "*" + "delete" + "*" + fname
     server_connect.send(request.encode())
     # Waiting for server to check file in local repo
     while True:
@@ -189,7 +192,7 @@ def discover(hostname: str, scrap):
     server_connect.connect((SERVER_HOST, SERVER_PORT))
     # Update true IP use for connection of Linux client
     CLIENT_HOST = server_connect.getsockname()[0]
-    request = "discover" + "*" + hostname
+    request = str(CLIENT_HOST) + "*" + "discover" + "*" + hostname
     server_connect.send(request.encode())
     # Waiting for server discover result
     while True:
@@ -204,11 +207,11 @@ def list_client(scrap, filler):
     global CLIENT_HOST, CLIENT_COMMAND_OUT
     server_connect = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server_connect.connect((SERVER_HOST, SERVER_PORT))
-    # Update true IP use for connection of Linux client
+    # Update true IP use for connection of client
     CLIENT_HOST = server_connect.getsockname()[0]
-    request = "list"
+    request = str(CLIENT_HOST) + "*" + "list"
     server_connect.send(request.encode())
-    client_list = server_connect.recv(1024).decode().split("*")
+    client_list = server_connect.recv(1024).decode()
     CLIENT_COMMAND_OUT = client_list
 
 
@@ -290,14 +293,14 @@ if __name__ == "__main__":
     listening_thread.start()
 
     # Thread for listening to command
-    command_thread = Thread(target=command_listening, args=("", CLIENT_COMMAND_PORT))
+    command_thread = Thread(target=command_listening, args=(CLIENT_HOST, CLIENT_COMMAND_PORT))
     command_thread.start()
 
     # file_path = r"/home/ntdat/Downloads"
     # file_name = "KGV_sisters.jpg"
     # test_publish = Thread(target=publish, args=(file_path, file_name))
     # test_publish.start()
-    #
+
     # file_name = "First ending - Age of Stars.png"
     # test_fetch = Thread(target=fetch, args=(file_name, 1))
     # test_fetch.start()

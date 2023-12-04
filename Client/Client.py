@@ -3,11 +3,13 @@ import socket
 from threading import Thread
 
 BUFFER_SIZE = 4096
+# Need to configure everytime server change IP
 SERVER_HOST = "192.168.20.198"
 SERVER_PORT = 5000
-SERVER_APP_PORT = 15000
+SERVER_APP_PORT = 5001
 # Linux client will update host down the line, while Window user can get it right now
-CLIENT_HOST = socket.gethostbyname_ex(socket.gethostname())[2][0]
+# Client host set here may not be the IP addr use for connection
+CLIENT_HOST = socket.gethostbyname(socket.gethostname())
 CLIENT_PORT = 15000
 CLIENT_COMMAND_PORT = 20000
 CLIENT_COMMAND_OUT = ""
@@ -70,7 +72,7 @@ def publish(lname: str, fname: str):
     global published_file, CLIENT_HOST, CLIENT_COMMAND_OUT
     server_connect = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server_connect.connect((SERVER_HOST, SERVER_PORT))
-    # Update true IP use for connection of Linux client
+    # Update true IP use for connection of client
     CLIENT_HOST = server_connect.getsockname()[0]
     # Linux client use "/", Window client use "\\"
     if lname != "":
@@ -125,9 +127,11 @@ def publish(lname: str, fname: str):
 
 def fetch(fname: str, scrap):
     # Initialize connection to server
-    global CLIENT_COMMAND_OUT
+    global CLIENT_HOST, CLIENT_COMMAND_OUT
     server_connect = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server_connect.connect((SERVER_HOST, SERVER_PORT))
+    # Update true IP use for connection of Linux client
+    CLIENT_HOST = server_connect.getsockname()[0]
     request = str(CLIENT_HOST) + "*" + "fetch" + "*" + fname
     server_connect.send(request.encode())
     # Waiting for server to check file in local repo
@@ -163,9 +167,11 @@ def fetch(fname: str, scrap):
 
 def delete(fname: str, scrap):
     # Initialize connection to server
-    global CLIENT_COMMAND_OUT
+    global CLIENT_HOST, CLIENT_COMMAND_OUT
     server_connect = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server_connect.connect((SERVER_HOST, SERVER_PORT))
+    # Update true IP use for connection of client
+    CLIENT_HOST = server_connect.getsockname()[0]
     request = str(CLIENT_HOST) + "*" + "delete" + "*" + fname
     server_connect.send(request.encode())
     # Waiting for server to check file in local repo
@@ -181,9 +187,11 @@ def delete(fname: str, scrap):
 
 def discover(hostname: str, scrap):
     # Initialize connection to server
-    global CLIENT_COMMAND_OUT
+    global CLIENT_HOST, CLIENT_COMMAND_OUT
     server_connect = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server_connect.connect((SERVER_HOST, SERVER_PORT))
+    # Update true IP use for connection of Linux client
+    CLIENT_HOST = server_connect.getsockname()[0]
     request = str(CLIENT_HOST) + "*" + "discover" + "*" + hostname
     server_connect.send(request.encode())
     # Waiting for server discover result
@@ -196,12 +204,14 @@ def discover(hostname: str, scrap):
 
 def list_client(scrap, filler):
     # Initialize connection to server
-    global CLIENT_COMMAND_OUT
+    global CLIENT_HOST, CLIENT_COMMAND_OUT
     server_connect = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server_connect.connect((SERVER_HOST, SERVER_PORT))
+    # Update true IP use for connection of client
+    CLIENT_HOST = server_connect.getsockname()[0]
     request = str(CLIENT_HOST) + "*" + "list"
     server_connect.send(request.encode())
-    client_list = server_connect.recv(1024).decode().split("*")
+    client_list = server_connect.recv(1024).decode()
     CLIENT_COMMAND_OUT = client_list
 
 

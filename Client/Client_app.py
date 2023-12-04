@@ -102,6 +102,7 @@ if __name__ == "__main__":
     # Get IP address for Linux client, at this time Client.py have not connected to server yet
     server_connect = socket.socket()
     server_connect.connect((SERVER_HOST, SERVER_APP_PORT))
+    # To find true IP use for connection
     CLIENT_HOST = server_connect.getsockname()[0]
     server_connect.send(CLIENT_HOST.encode())
     # print(CLIENT_HOST)

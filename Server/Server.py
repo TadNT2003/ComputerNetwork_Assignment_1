@@ -6,6 +6,7 @@ SERVER_FULLHOST = socket.gethostbyname_ex(socket.gethostname())
 SERVER_HOST = SERVER_FULLHOST[2][2]
 SERVER_PORT = 5000
 SERVER_COMMAND_PORT = 10000
+SERVER_APP_PORT = 15000
 SERVER_COMMAND_OUT = ""
 SERVER_DATABASE = {}
 
@@ -27,9 +28,10 @@ def discover(hostname: str, scrap):
 # Handle client request process
 def request_listen(conn: socket.socket, host):
     request = conn.recv(1024).decode().split("*")
+    host = request[0]
     # Publish command
-    if request[0] == "publish":
-        file_name = request[2]
+    if request[1] == "publish":
+        file_name = request[3]
         # print(file_name)
         # Check file in client local repo
         if file_name in SERVER_DATABASE[host]:
@@ -40,8 +42,8 @@ def request_listen(conn: socket.socket, host):
             SERVER_DATABASE[host].append(file_name)
             # print(SERVER_DATABASE)
     # Fetch command
-    elif request[0] == "fetch":
-        file_name = request[1]
+    elif request[1] == "fetch":
+        file_name = request[2]
         # Check file in client local repo
         if file_name in SERVER_DATABASE[host]:
             conn.send("File already in local repo".encode())
@@ -62,8 +64,8 @@ def request_listen(conn: socket.socket, host):
                 SERVER_DATABASE[host].append(file_name)
                 # print(SERVER_DATABASE)
     # Delete command
-    elif request[0] == "delete":
-        file_name = request[1]
+    elif request[1] == "delete":
+        file_name = request[2]
         # Check file in client local repo
         if file_name in SERVER_DATABASE[host]:
             SERVER_DATABASE[host].remove(file_name)
@@ -71,8 +73,8 @@ def request_listen(conn: socket.socket, host):
         else:
             conn.send("Cannot delete! File not in local repo".encode())
     # Discover command
-    elif request[0] == "discover":
-        hostname = request[1]
+    elif request[1] == "discover":
+        hostname = request[2]
         dis_result: str
         # Find host in server DB
         if hostname in SERVER_DATABASE:
@@ -84,7 +86,7 @@ def request_listen(conn: socket.socket, host):
             dis_result = "Host not recognize"
         conn.send(dis_result.encode())
     # List client command
-    elif request[0] == "list":
+    elif request[1] == "list":
         client_list = ""
         for i in SERVER_DATABASE:
             if client_list != "":
@@ -102,9 +104,7 @@ def client_listening(host, port):
     while True:
         client_conn, client_host = listening_socket.accept()
         print(f"Accept connection from {client_host}")
-        # If client have never connected to server before
-        if not client_host[0] in SERVER_DATABASE:
-            SERVER_DATABASE[client_host[0]] = []
+
         request_handle = Thread(target=request_listen, args=(client_conn, client_host[0]))
         request_handle.start()
 
@@ -129,11 +129,28 @@ def command_listening(host, port):
         command_handle.start()
 
 
+def app_connect(host, port):
+    app_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    app_socket.bind((host, port))
+    app_socket.listen(10)
+    while True:
+        app_conn, addr = app_socket.accept()
+        client_host = app_conn.recv(1024).decode()
+        # If client have never connected to server before
+        if not client_host in SERVER_DATABASE:
+            SERVER_DATABASE[client_host] = []
+            print(SERVER_DATABASE)
+
+
 if __name__ == "__main__":
     # print(SERVER_FULLHOST)
     # Thread for listening to client
     Main_Socket = Thread(target=client_listening, args=(SERVER_HOST, SERVER_PORT))
     Main_Socket.start()
+
+    #Thread for client app
+    App_Socket = Thread(target=app_connect, args=(SERVER_HOST, SERVER_APP_PORT))
+    App_Socket.start()
 
     # Thread for listening to command
     Command_Socket = Thread(target=command_listening, args=(SERVER_HOST, SERVER_COMMAND_PORT))

@@ -9,6 +9,7 @@ SERVER_COMMAND_PORT = 10000
 SERVER_APP_PORT = 5001
 SERVER_COMMAND_OUT = ""
 SERVER_DATABASE = {}
+CLIENT_PING_PORT = 15001
 
 
 # Server discover command
@@ -23,6 +24,28 @@ def discover(hostname: str, scrap):
         return_value = "Host not recognize"
     SERVER_COMMAND_OUT = return_value
     # print(return_value)
+
+
+def ping(hostname: str, scrap):
+    global SERVER_COMMAND_OUT
+    if hostname in SERVER_DATABASE:
+        client_connect = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        client_connect.settimeout(10)
+        try:
+            client_connect.connect((hostname, CLIENT_PING_PORT))
+            client_connect.send("ping from server".encode())
+            response = client_connect.recv(1024).decode()
+            # print(response)
+        except TimeoutError:
+            SERVER_COMMAND_OUT = "Request time out"
+        except ConnectionError:
+            SERVER_COMMAND_OUT = "Host unreachable"
+        else:
+            if response == "acknowledge":
+                SERVER_COMMAND_OUT = f"Ping to {hostname}. Acknowledge received!"
+        client_connect.close()
+    else:
+        SERVER_COMMAND_OUT = "Host not recognize"
 
 
 # Handle client request process
@@ -116,6 +139,14 @@ def command_handling(conn: socket.socket, host):
         hostname = command[1]
         discover(hostname, 1)
         conn.send(SERVER_COMMAND_OUT.encode())
+    elif command[0] == "ping":
+        hostname = command[1]
+        # print(command)
+        for i in range(4):
+            ping(hostname, 1)
+            # print(SERVER_COMMAND_OUT)
+            conn.send(SERVER_COMMAND_OUT.encode())
+            reply_from_app = conn.recv(1024).decode()
 
 
 # Use for listening command
@@ -139,7 +170,7 @@ def app_connect(host, port):
         # If client have never connected to server before
         if not client_host in SERVER_DATABASE:
             SERVER_DATABASE[client_host] = []
-            print(SERVER_DATABASE)
+            # print(SERVER_DATABASE)
 
 
 if __name__ == "__main__":

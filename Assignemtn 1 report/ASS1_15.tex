@@ -191,7 +191,7 @@
 			Bên cạnh đó, việc fetch một file vào local repository cũng sẽ đồng thời thông báo với server, tức là file tên \textit{fname} có mặt trên ít nhất hai client.
 			\item Thêm câu lệnh \textbf{delete \textit{filename}}: Xóa một file từ local repo ra khỏi hệ thống i.e server sẽ không còn lưu thông tin về file này trên client nữa.
 			Báo lỗi "Cannot delete! File not in local repo!" nếu file đó không nằm trong local repo của client yêu cầu. Tức là một client chỉ có thể xóa một file trong local repo của bản thân.
-			\item Thêm câu lệnh \textbf{discover \textit{hostname}}: Nếu một \textit{hostname} chưa từng kết nối với server từ trước thì báo lỗi "Host not recognize!". Nếu \textit{hostname} đã kết nối nhưng chưa publish bất kì file thì báo "\textit{hostname} has not published any files!".
+			\item Thêm câu lệnh \textbf{discover \textit{hostname}}: In ra danh sách file mà \textit{hostname} đã publish trên server. Nếu một \textit{hostname} chưa từng kết nối với server từ trước thì báo lỗi "Host not recognize!". Nếu \textit{hostname} đã kết nối nhưng chưa publish bất kì file thì báo "\textit{hostname} has not published any files!".
 			\item Thêm câu lệnh \textbf{list}: In ra danh sách các client đã từng kết nối với server. Khi đó một client kết hợp câu lệnh này với câu lệnh \textbf{discover \textit{hostname}} để tìm được file mình muốn chuyển.
 		\end{itemize}
 		\item Với câu lệnh bên phía server:
@@ -256,13 +256,36 @@
 			\label{delete_diagram}
 		\end{center}
 	\end{figure}
-	\subsubsection{discover \textit{hostname}}
+	\subsubsection{Client: discover \textit{hostname}}
+	$\indent$Client gửi dữ liệu tới server về \textit{hostname}. Server sẽ kiểm tra xem nếu \textit{hostname} đã từng kết nối từ trước chưa. Nếu chưa thì thông báo lỗi và kết thúc, còn không thì gửi về client danh sách các file mà \textit{hostname} đã publish. Cách hoạt động và lưu ý khi xử lí lỗi tương tự với câu lệnh \textbf{discover \textit{hostname}} bên server.
+	\newpage
+	\begin{figure}[h]
+		\begin{center}
+			\includegraphics[width=0.7\textwidth]{images/client_discover_activity_diagram.png}
+			\hspace{\textwidth}
+			\caption{Lược đồ hoạt động của câu lệnh \textbf{discover \textit{hostname}} của client}
+			\label{client_discover_diagram}
+		\end{center}
+	\end{figure}
+	\subsubsection{list}
+	$\indent$Client gửi yêu cầu tới server để biết về toàn bộ các client đã từng kết nối với server trước đây.
+	\newpage
+	\begin{figure}[!h]
+		\begin{center}
+			\includegraphics[width=0.7\textwidth]{images/list_activity_diagram.png}
+			\hspace{\textwidth}
+			\caption{Lược đồ hoạt động của câu lệnh \textbf{list}}
+			\label{list_diagram}
+		\end{center}
+	\end{figure}
+	\subsubsection{Server: discover \textit{hostname}}
 	$\indent$Từ dữ liệu server đã nhận được từ việc các client publish file của mình lên. Server kiểm tra xem \textit{hostname} đã từng kết nối chưa. Trường hợp có rồi và đã publish file thì cho ra danh sách các file trong local repo, còn nếu chưa publish file thì cũng thông báo ra màn hình. Trường hợp chưa từng kết nối thì báo lỗi và kết thúc. Câu lệnh này chỉ cần duy nhất server thực hiện, không cần kết nối với client nào.
+	\newpage
 	\begin{figure}[h]
 		\begin{center}
 			\includegraphics[width=0.7\textwidth]{images/discover_activity_diagram.png}
 			\hspace{\textwidth}
-			\caption{Lược đồ hoạt động của câu lệnh \textbf{discover \textit{hostname}}}
+			\caption{Lược đồ hoạt động của câu lệnh \textbf{discover \textit{hostname}} của server}
 			\label{discover_diagram}
 		\end{center}
 	\end{figure}
@@ -282,8 +305,54 @@
 	
 	\section{Implement and validation}
 	\subsection{Manual document}
-	...
-	
+	$\indent$Đây là phần hướng dẫn sử dụng ứng dụng chia sẻ file của Bài tập lớn 1 môn Mạng Máy Tính
+	\subsubsection{System requirement}
+	$\indent$Yêu cầu về hệ thống để ứng dụng hoạt động:
+	 \begin{itemize}
+	 	\item Hệ điều hành Windows hoặc Linux có hỗ trợ Python (đã test trên Win 11 và Ubuntu 22.04).
+	 	\item Cả server và client có chung mạng cục bộ (LAN - Local Area Network) với nhau, đảm bảo ping nhau qua lại được trên terminal của máy.
+	 	\item Có cài đặt Python, tốt nhất là Python 3 từ bản 3.11 trở xuống (Bản 3.12 khi test đã không thể tạo được thread mới, đây là lỗi thuộc về Python Interpreter 3.12 nên nó nằm ngoài phạm vi xử lí của bài tập lớn). Đồng thời có cài đặt module "Typer" cho ứng dụng CLI.
+	 \end{itemize}
+	\subsubsection{Client User Configuration Requirement}
+	$\indent$Yêu cầu cấu hình từ người dùng client để ứng dụng hoạt động được bình thường:
+	\begin{enumerate}
+		\item Với người dùng Linux thì thay thế mọi hướng dẫn với file \textit{"Client.py"} bắt đầu từ phần này trở về sau bằng file \textit{"Client\_for\_Linux.py"}.
+		\item Trong phạm vi của bài tập lớn này, server là một máy tính cá nhân của thành viên trong nhóm, do đó địa chỉ IP của server có thể thay đổi, cần phải sửa biến global \textit{SERVER\_HOST} trên từng client.
+		\item Qua module socket, Python có thể lấy được địa chỉ IP của máy client. Tuy nhiên, vì thực tế cấu hình mỗi máy có nhiều địa chỉ IP, mà địa chỉ IP thực sự dùng để kết nối lại tùy thuộc vào loại kết nối mà máy đang sử dụng (Wifi, Ethernet, ...). Do đó cần người dùng thay đổi cách lấy địa chỉ IP trong file 
+	\end{enumerate}
+	\subsubsection{User Guide}
+	$\indent$\textbf{Dành cho Server user:}
+	\begin{enumerate}
+		\item Bật server bằng việc cho chạy file \textit{"Server.py"}
+		\item Từ đây có thể bắt đầu sử dụng CLI của server. Chuyển terminal đến vị trí folder chứa file \textit{"Server\_app.py"}. Gọi câu lệnh (command) theo cú pháp:
+		\begin{itemize}
+			\item Với người dùng Windows: \texttt{py Server\_app.py} + câu lệnh
+			\item Vơi người dùng Linux: \texttt{python3 Server\_app.py} + câu lệnh
+		\end{itemize}
+		\item CLI của server có những câu lệnh sau:
+		\begin{itemize}
+			\item \textbf{discover \textit{hostname}}: In ra danh sách file mà \textit{hostname} có trong local repo. Lưu ý, \textit{hostname} ở đây là địa chỉ IP.
+			\item \textbf{ping \textit{hostname}}: Ping đến \textit{hostname} bằng việc gửi các gói tin và chờ phản hồi, tương tự câu lệnh ping trong terminal
+		\end{itemize}
+	\end{enumerate}
+	$\indent$\textbf{Dành cho Client user:}
+	\begin{enumerate}
+		\item Bật client bằng việc cho chạy file \textit{"Client.py"}
+		\item Từ đây có thể bắt đầu sử dụng CLI của client. Chuyển terminal đến vị trí folder chứa file \textit{"Client\_app.py"}. Gọi câu lệnh (command) theo cú pháp:
+		\begin{itemize}
+			\item Với người dùng Windows: \texttt{py Client\_app.py} + câu lệnh
+			\item Vơi người dùng Linux: \texttt{python3 Client\_app.py} + câu lệnh
+		\end{itemize}
+		\item CLI của client có những câu lệnh sau:
+		\begin{itemize}
+			\item \textbf{publish \textit{lname fname}}: Thêm file tên \textit{fname} từ trong máy của client tại địa chỉ \textit{lname} vào local repo và thông báo tới server.
+			\item \textbf{fetch \textit{fname}}: Lấy file tên \textit{fname} từ một trong các client đã kết nối tới server
+			\item \textbf{delete \textit{filename}}: Xóa file tên \textit{fname} từ local repo ra khỏi local repo của client trong server
+			\item \textbf{discover \textit{hostname}}: In ra danh sách file mà \textit{hostname} đã publish trên server.
+			\item \textbf{list}: In ra danh sách các client đã từng kết nối với server. Một client có thể kết hợp câu lệnh này với câu lệnh \textbf{discover \textit{hostname}} để tìm được file mình muốn chuyển.
+		\end{itemize}
+		\item Lưu ý khi sử dụng CLI: với các trường hợp tên file hoặc tên đường dẫn có chứa khoảng trống, khi nhập vào terminal phải đóng trong dấu ngoặc kép. Khi nhập tên file cần nhập luôn cả file extension. (.txt, .doc, .png, ...)
+	\end{enumerate}
 	\subsection{Source code}
 	...
 	

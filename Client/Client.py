@@ -4,13 +4,14 @@ from threading import Thread
 
 BUFFER_SIZE = 4096
 # Need to configure everytime server change IP
-SERVER_HOST = "192.168.20.198"
+SERVER_HOST = "192.168.31.48"
 SERVER_PORT = 5000
 SERVER_APP_PORT = 5001
 # Linux client will update host down the line, while Window user can get it right now
 # Client host set here may not be the IP addr use for connection
-CLIENT_HOST = socket.gethostbyname(socket.gethostname())
+CLIENT_HOST = socket.gethostbyname_ex(socket.gethostname())[2][0]
 CLIENT_PORT = 15000
+CLIENT_PING_PORT = 15001
 CLIENT_COMMAND_PORT = 20000
 CLIENT_COMMAND_OUT = ""
 
@@ -65,6 +66,18 @@ def send_fetch_file(client_conn: socket.socket, listening_socket: socket.socket,
         # listening_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         # listening_socket.bind(("", port))
         # listening_socket.listen(10)
+
+
+def response_ping(host, port):
+    # server_conn.settimeout(10)
+    ping_conn = socket.socket(socket.AF_INET, socket.SOCK_STREAM )
+    ping_conn.bind((host, port))
+    ping_conn.listen(10)
+    while True:
+        server_conn, server_addr = ping_conn.accept()
+        ping = server_conn.recv(1024).decode()
+        if ping == "ping from server":
+            server_conn.send("acknowledge".encode())
 
 
 def publish(lname: str, fname: str):
@@ -288,6 +301,13 @@ def command_listening(host, port):
 
 
 if __name__ == "__main__":
+    # Connect to server to update the IP actually use for connection
+    server_connect = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    server_connect.connect((SERVER_HOST, SERVER_APP_PORT))
+    # Update true IP use for connection of client
+    CLIENT_HOST = server_connect.getsockname()[0]
+    server_connect.send(CLIENT_HOST.encode())
+    server_connect.close()
     # Thread for listening to other client
     listening_thread = Thread(target=client_listening, args=(CLIENT_HOST, CLIENT_PORT))
     listening_thread.start()
@@ -295,6 +315,10 @@ if __name__ == "__main__":
     # Thread for listening to command
     command_thread = Thread(target=command_listening, args=(CLIENT_HOST, CLIENT_COMMAND_PORT))
     command_thread.start()
+
+    # Thread for ping from server
+    ping_thread = Thread(target=response_ping, args=(CLIENT_HOST, CLIENT_PING_PORT))
+    ping_thread.start()
 
     # file_path = r"C:\Users\Admin\OneDrive\Pictures\Elden Ring"
     # file_name = "First ending - Age of Stars.png"

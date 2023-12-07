@@ -23,6 +23,26 @@ def discover(hostname: str):
         server_connect.close()
 
 
+@app.command()
+def ping(hostname: str):
+    """Ping to hostname"""
+    try:
+        # Try to connect to client program
+        # client_connect = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        server_connect.connect((SERVER_HOST, SERVER_COMMAND_PORT))
+    except ConnectionError:
+        print("Connection Error! Server has not been up yet")
+    else:
+        command = "ping" + "*" + hostname
+        server_connect.send(command.encode())
+        for i in range(4):
+            command_output = server_connect.recv(1024).decode()
+            print(command_output)
+            server_connect.send("reply from app".encode())
+        # Close socket
+        server_connect.close()
+
+
 @app.callback()
 def callback():
     """Welcome! This is the CLI for the Server of Assignment 1 file-sharing app"""

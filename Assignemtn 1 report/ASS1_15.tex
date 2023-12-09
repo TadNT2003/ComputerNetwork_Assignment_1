@@ -220,10 +220,6 @@
 			\label{usecase_diagram}
 		\end{center}
 	\end{figure}
-	
-	\subsection{Class diagram}
-	...
-	
 	\subsection{Activity diagram main functions}
 	$\indent$Ứng với mỗi câu lệnh (use-case) chính của từng actor, ta có được các lược đồ hoạt động (activity diagram) dưới đây. Ở đây lưu ý, khi lược đồ đi đến final node thì cũng đồng thời đóng mọi kết nối socket đã thiết lập trước đó, nhằm tránh việc tạo quá nhiều kết nối không cần thiết.
 	\subsubsection{publish \textit{lname fname}}
@@ -256,7 +252,7 @@
 			\label{delete_diagram}
 		\end{center}
 	\end{figure}
-	\subsubsection{Client: discover \textit{hostname}}
+	\subsubsection{discover \textit{hostname} (Client side)}
 	$\indent$Client gửi dữ liệu tới server về \textit{hostname}. Server sẽ kiểm tra xem nếu \textit{hostname} đã từng kết nối từ trước chưa. Nếu chưa thì thông báo lỗi và kết thúc, còn không thì gửi về client danh sách các file mà \textit{hostname} đã publish. Cách hoạt động và lưu ý khi xử lí lỗi tương tự với câu lệnh \textbf{discover \textit{hostname}} bên server.
 	\newpage
 	\begin{figure}[h]
@@ -278,7 +274,7 @@
 			\label{list_diagram}
 		\end{center}
 	\end{figure}
-	\subsubsection{Server: discover \textit{hostname}}
+	\subsubsection{discover \textit{hostname} (Server side)}
 	$\indent$Từ dữ liệu server đã nhận được từ việc các client publish file của mình lên. Server kiểm tra xem \textit{hostname} đã từng kết nối chưa. Trường hợp có rồi và đã publish file thì cho ra danh sách các file trong local repo, còn nếu chưa publish file thì cũng thông báo ra màn hình. Trường hợp chưa từng kết nối thì báo lỗi và kết thúc. Câu lệnh này chỉ cần duy nhất server thực hiện, không cần kết nối với client nào.
 	\newpage
 	\begin{figure}[h]
@@ -304,31 +300,31 @@
 	
 	
 	\section{Implement and validation}
-	\subsection{Manual document}
+	\subsection{Manual document}\label{Manual}
 	$\indent$Đây là phần hướng dẫn sử dụng ứng dụng chia sẻ file của Bài tập lớn 1 môn Mạng Máy Tính
 	\subsubsection{System requirement}
 	$\indent$Yêu cầu về hệ thống để ứng dụng hoạt động:
 	 \begin{itemize}
-	 	\item Hệ điều hành Windows hoặc Linux có hỗ trợ Python (đã test trên Win 11 và Ubuntu 22.04).
+	 	\item Hệ điều hành Windows có hỗ trợ Python (đã test trên Win 11, có test trên máy ảo Ubuntu 22.04). File \texttt{Client\_for\_Linux} chỉ dùng để test trên máy ảo sử dụng Linux. Trong phạm vi bài tập lớn này, ứng dụng sẽ chạy hoàn toàn trên các máy sử dụng hệ điều hành Windows.
 	 	\item Cả server và client có chung mạng cục bộ (LAN - Local Area Network) với nhau, đảm bảo ping nhau qua lại được trên terminal của máy.
 	 	\item Có cài đặt Python, tốt nhất là Python 3 từ bản 3.11 trở xuống (Bản 3.12 khi test đã không thể tạo được thread mới, đây là lỗi thuộc về Python Interpreter 3.12 nên nó nằm ngoài phạm vi xử lí của bài tập lớn). Đồng thời có cài đặt module "Typer" cho ứng dụng CLI.
 	 \end{itemize}
 	\subsubsection{Client User Configuration Requirement}
 	$\indent$Yêu cầu cấu hình từ người dùng client để ứng dụng hoạt động được bình thường:
 	\begin{enumerate}
-		\item Với người dùng Linux thì thay thế mọi hướng dẫn với file \textit{"Client.py"} bắt đầu từ phần này trở về sau bằng file \textit{"Client\_for\_Linux.py"}.
 		\item Trong phạm vi của bài tập lớn này, server là một máy tính cá nhân của thành viên trong nhóm, do đó địa chỉ IP của server có thể thay đổi, cần phải sửa biến global \textit{SERVER\_HOST} trên từng client.
-		\item Qua module socket, Python có thể lấy được địa chỉ IP của máy client. Tuy nhiên, vì thực tế cấu hình mỗi máy có nhiều địa chỉ IP, mà địa chỉ IP thực sự dùng để kết nối lại tùy thuộc vào loại kết nối mà máy đang sử dụng (Wifi, Ethernet, ...). Do đó cần người dùng thay đổi cách lấy địa chỉ IP trong file 
+		\item Qua module socket, Python có thể lấy được địa chỉ IP của máy client. Tuy nhiên, vì thực tế cấu hình mỗi máy có nhiều địa chỉ IP, mà địa chỉ IP thực sự dùng để kết nối lại tùy thuộc vào loại kết nối mà máy đang sử dụng (Wifi, Ethernet, ...). Do đó cần người dùng thay đổi cách lấy địa chỉ IP trong file \textit{Client.py} để chương trình có thể hoạt động:
+		\begin{itemize}
+			\item Tìm các địa chỉ IP của máy bằng việc gõ câu lệnh \texttt{ipconfig} vào terminal. Trên terminal sẽ có thể hiện nhiều địa chỉ IP, trong đó địa chỉ IP có trường \textbf{Default Gateway} không bị bỏ trống chính là địa chỉ IP thực sự dùng để kết nối mạng.
+			\item Địa chỉ IP của máy được tìm thông qua đoạn code ở phần đầu file \texttt{Client.py}: \emph{\texttt{CLIENT\_HOST = socket.gethostbyname\_ex(socket.gethostname())[2][\textbf{X}]}}. Trong đó, \textbf{X} là thứ tự của địa chỉ IP có trường \textbf{Default Gateway} tìm thấy ở trên trong số các địa chỉ IP được terminal hiện ra.\\
+			Một máy Windows có thể có nhiều địa chỉ IP bao gồm cho kết nối Ethernet, Wireless (như Wifi), WSL (Windows Subsystem for Linux),...
+		\end{itemize}
 	\end{enumerate}
 	\subsubsection{User Guide}
 	$\indent$\textbf{Dành cho Server user:}
 	\begin{enumerate}
 		\item Bật server bằng việc cho chạy file \textit{"Server.py"}
-		\item Từ đây có thể bắt đầu sử dụng CLI của server. Chuyển terminal đến vị trí folder chứa file \textit{"Server\_app.py"}. Gọi câu lệnh (command) theo cú pháp:
-		\begin{itemize}
-			\item Với người dùng Windows: \texttt{py Server\_app.py} + câu lệnh
-			\item Vơi người dùng Linux: \texttt{python3 Server\_app.py} + câu lệnh
-		\end{itemize}
+		\item Từ đây có thể bắt đầu sử dụng CLI của server. Chuyển terminal đến vị trí folder chứa file \textit{"Server\_app.py"}. Gọi câu lệnh (command) theo cú pháp: \texttt{py Server\_app.py} + câu lệnh
 		\item CLI của server có những câu lệnh sau:
 		\begin{itemize}
 			\item \textbf{discover \textit{hostname}}: In ra danh sách file mà \textit{hostname} có trong local repo. Lưu ý, \textit{hostname} ở đây là địa chỉ IP.
@@ -338,11 +334,7 @@
 	$\indent$\textbf{Dành cho Client user:}
 	\begin{enumerate}
 		\item Bật client bằng việc cho chạy file \textit{"Client.py"}
-		\item Từ đây có thể bắt đầu sử dụng CLI của client. Chuyển terminal đến vị trí folder chứa file \textit{"Client\_app.py"}. Gọi câu lệnh (command) theo cú pháp:
-		\begin{itemize}
-			\item Với người dùng Windows: \texttt{py Client\_app.py} + câu lệnh
-			\item Vơi người dùng Linux: \texttt{python3 Client\_app.py} + câu lệnh
-		\end{itemize}
+		\item Từ đây có thể bắt đầu sử dụng CLI của client. Chuyển terminal đến vị trí folder chứa file \textit{"Client\_app.py"}. Gọi câu lệnh (command) theo cú pháp: \texttt{py Client\_app.py} + câu lệnh
 		\item CLI của client có những câu lệnh sau:
 		\begin{itemize}
 			\item \textbf{publish \textit{lname fname}}: Thêm file tên \textit{fname} từ trong máy của client tại địa chỉ \textit{lname} vào local repo và thông báo tới server.
@@ -351,14 +343,16 @@
 			\item \textbf{discover \textit{hostname}}: In ra danh sách file mà \textit{hostname} đã publish trên server.
 			\item \textbf{list}: In ra danh sách các client đã từng kết nối với server. Một client có thể kết hợp câu lệnh này với câu lệnh \textbf{discover \textit{hostname}} để tìm được file mình muốn chuyển.
 		\end{itemize}
-		\item Lưu ý khi sử dụng CLI: với các trường hợp tên file hoặc tên đường dẫn có chứa khoảng trống, khi nhập vào terminal phải đóng trong dấu ngoặc kép. Khi nhập tên file cần nhập luôn cả file extension. (.txt, .doc, .png, ...)
+		\item Lưu ý khi sử dụng CLI: với các trường hợp tên file hoặc tên đường dẫn có chứa khoảng trống, khi nhập vào terminal phải đóng trong dấu ngoặc kép. Khi nhập tên file cần nhập luôn cả file extension (.txt, .doc, .png, ...). Đường dẫn file sẽ chỉ tới thư mục chứa file đó.
 	\end{enumerate}
 	\subsection{Source code}
-	...
-	
+	$\indent$Protocol trao đổi Message qua lại giữa các client và server trong việc thực hiện các câu lệnh tuân theo cú pháp: (địa chỉ IP)*(Tên câu lệnh)*(Danh sách input của câu lệnh).\\
+	Về source code của chương trình, xem các file \texttt{Client.py, Client\_for\_Linux.py, Client\_app.py, Server.py, Server\_app.py} trong hai thư mục \textit{Client, Server}
 	\subsection{Validation and evaluation}
-	...
-	
+	$\indent$Tiến hành việc chạy thử và kiểm tra chương trình. Thực hiện theo các bước như trong phần \ref{Manual}, tiến hành chạy các câu lệnh
+	\subsubsection{Thêm và xóa file từ file system của client vào dữ liệu của server}
+	\subsubsection{Truyền file từ một client sang nhiều client khác}
+	\subsubsection{Ping từ server tới một client}
 	\begin{thebibliography}{80}
 		
 		

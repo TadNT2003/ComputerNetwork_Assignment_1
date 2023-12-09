@@ -4,12 +4,12 @@ from threading import Thread
 
 BUFFER_SIZE = 4096
 # Need to configure everytime server change IP
-SERVER_HOST = "192.168.31.48"
+SERVER_HOST = "192.168.1.28"
 SERVER_PORT = 5000
 SERVER_APP_PORT = 5001
 # Linux client will update host down the line, while Window user can get it right now
 # Client host set here may not be the IP addr use for connection
-CLIENT_HOST = socket.gethostbyname_ex(socket.gethostname())[2][0]
+CLIENT_HOST = socket.gethostbyname_ex(socket.gethostname())[2][2]
 CLIENT_PORT = 15000
 CLIENT_PING_PORT = 15001
 CLIENT_COMMAND_PORT = 20000
@@ -301,13 +301,6 @@ def command_listening(host, port):
 
 
 if __name__ == "__main__":
-    # Connect to server to update the IP actually use for connection
-    server_connect = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    server_connect.connect((SERVER_HOST, SERVER_APP_PORT))
-    # Update true IP use for connection of client
-    CLIENT_HOST = server_connect.getsockname()[0]
-    server_connect.send(CLIENT_HOST.encode())
-    server_connect.close()
     # Thread for listening to other client
     listening_thread = Thread(target=client_listening, args=(CLIENT_HOST, CLIENT_PORT))
     listening_thread.start()

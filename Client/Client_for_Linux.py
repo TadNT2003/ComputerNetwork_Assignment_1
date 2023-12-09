@@ -11,6 +11,7 @@ SERVER_APP_PORT = 5001
 # Client host set here may not be the IP addr use for connection
 CLIENT_HOST = socket.gethostbyname(socket.gethostname())
 CLIENT_PORT = 15000
+CLIENT_PING_PORT = 15001
 CLIENT_COMMAND_PORT = 20000
 CLIENT_COMMAND_OUT = ""
 
@@ -65,6 +66,18 @@ def send_fetch_file(client_conn: socket.socket, listening_socket: socket.socket,
         # listening_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         # listening_socket.bind(("", port))
         # listening_socket.listen(10)
+
+
+def response_ping(host, port):
+    # server_conn.settimeout(10)
+    ping_conn = socket.socket(socket.AF_INET, socket.SOCK_STREAM )
+    ping_conn.bind((host, port))
+    ping_conn.listen(10)
+    while True:
+        server_conn, server_addr = ping_conn.accept()
+        ping = server_conn.recv(1024).decode()
+        if ping == "ping from server":
+            server_conn.send("acknowledge".encode())
 
 
 def publish(lname: str, fname: str):
@@ -293,11 +306,15 @@ if __name__ == "__main__":
     listening_thread.start()
 
     # Thread for listening to command
-    command_thread = Thread(target=command_listening, args=(CLIENT_HOST, CLIENT_COMMAND_PORT))
+    command_thread = Thread(target=command_listening, args=("", CLIENT_COMMAND_PORT))
     command_thread.start()
 
-    # file_path = r"/home/ntdat/Downloads"
-    # file_name = "KGV_sisters.jpg"
+    # Thread for ping from server
+    ping_thread = Thread(target=response_ping, args=("", CLIENT_PING_PORT))
+    ping_thread.start()
+
+    # file_path = r"C:\Users\Admin\OneDrive\Pictures\Elden Ring"
+    # file_name = "First ending - Age of Stars.png"
     # test_publish = Thread(target=publish, args=(file_path, file_name))
     # test_publish.start()
 

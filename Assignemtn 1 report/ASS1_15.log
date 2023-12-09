@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.10) (preloaded format=pdflatex 2022.10.31)  7 DEC 2023 11:57
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.10) (preloaded format=pdflatex 2022.10.31)  9 DEC 2023 19:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1186,7 +1186,7 @@ Package hyperref Info: Link coloring ON on input line 77.
 \@outlinefile=\write4
 \openout4 = `ASS1_15.out'.
 
-<images/hcmut.png, id=94, 272.01625pt x 277.035pt>
+<images/hcmut.png, id=102, 272.01625pt x 277.035pt>
 File: images/hcmut.png Graphic file (type png)
 <use images/hcmut.png>
 Package pdftex.def Info: images/hcmut.png  used on input line 90.
@@ -1248,7 +1248,7 @@ File: images/hcmut.png Graphic file (type png)
 Package pdftex.def Info: images/hcmut.png  used on input line 184.
 (pdftex.def)             Requested size: 22.76204pt x 22.75928pt.
 [2]
-<images/Gen_usecase_diagram.png, id=146, 449.42906pt x 350.05782pt>
+<images/Gen_usecase_diagram.png, id=156, 449.42906pt x 350.05782pt>
 File: images/Gen_usecase_diagram.png Graphic file (type png)
 <use images/Gen_usecase_diagram.png>
 Package pdftex.def Info: images/Gen_usecase_diagram.png  used on input line 217
@@ -1259,78 +1259,78 @@ File: images/hcmut.png Graphic file (type png)
 Package pdftex.def Info: images/hcmut.png  used on input line 223.
 (pdftex.def)             Requested size: 22.76204pt x 22.75928pt.
  [3]
-File: images/hcmut.png Graphic file (type png)
-<use images/hcmut.png>
-Package pdftex.def Info: images/hcmut.png  used on input line 229.
-(pdftex.def)             Requested size: 22.76204pt x 22.75928pt.
- [4 <./images/Gen_usecase_diagram.png>]
-<images/publish_activity_diagram.png, id=163, 527.9725pt x 867.24pt>
+<images/publish_activity_diagram.png, id=166, 527.9725pt x 867.24pt>
 File: images/publish_activity_diagram.png Graphic file (type png)
 <use images/publish_activity_diagram.png>
 Package pdftex.def Info: images/publish_activity_diagram.png  used on input lin
-e 233.
+e 229.
 (pdftex.def)             Requested size: 209.12683pt x 343.50221pt.
-<images/fetch_activity_diagram.png, id=164, 757.83125pt x 1120.185pt>
+File: images/hcmut.png Graphic file (type png)
+<use images/hcmut.png>
+Package pdftex.def Info: images/hcmut.png  used on input line 235.
+(pdftex.def)             Requested size: 22.76204pt x 22.75928pt.
+ [4 <./images/Gen_usecase_diagram.png>]
+<images/fetch_activity_diagram.png, id=174, 757.83125pt x 1120.185pt>
 File: images/fetch_activity_diagram.png Graphic file (type png)
 <use images/fetch_activity_diagram.png>
 Package pdftex.def Info: images/fetch_activity_diagram.png  used on input line 
-243.
+239.
 (pdftex.def)             Requested size: 292.77629pt x 432.76816pt.
 File: images/hcmut.png Graphic file (type png)
 <use images/hcmut.png>
-Package pdftex.def Info: images/hcmut.png  used on input line 249.
+Package pdftex.def Info: images/hcmut.png  used on input line 245.
 (pdftex.def)             Requested size: 22.76204pt x 22.75928pt.
  [5 <./images/publish_activity_diagram.png>]
-<images/delete_activity_diagram.png, id=172, 527.9725pt x 592.2125pt>
+<images/delete_activity_diagram.png, id=182, 527.9725pt x 592.2125pt>
 File: images/delete_activity_diagram.png Graphic file (type png)
 <use images/delete_activity_diagram.png>
 Package pdftex.def Info: images/delete_activity_diagram.png  used on input line
- 253.
+ 249.
 (pdftex.def)             Requested size: 292.77629pt x 328.39265pt.
 File: images/hcmut.png Graphic file (type png)
 <use images/hcmut.png>
-Package pdftex.def Info: images/hcmut.png  used on input line 259.
+Package pdftex.def Info: images/hcmut.png  used on input line 255.
 (pdftex.def)             Requested size: 22.76204pt x 22.75928pt.
  [6 <./images/fetch_activity_diagram.png>]
 File: images/hcmut.png Graphic file (type png)
 <use images/hcmut.png>
-Package pdftex.def Info: images/hcmut.png  used on input line 261.
+Package pdftex.def Info: images/hcmut.png  used on input line 257.
 (pdftex.def)             Requested size: 22.76204pt x 22.75928pt.
  [7 <./images/delete_activity_diagram.png>]
-<images/client_discover_activity_diagram.png, id=188, 455.7025pt x 617.30624pt>
+<images/client_discover_activity_diagram.png, id=198, 455.7025pt x 617.30624pt>
 
 File: images/client_discover_activity_diagram.png Graphic file (type png)
 <use images/client_discover_activity_diagram.png>
 Package pdftex.def Info: images/client_discover_activity_diagram.png  used on i
-nput line 264.
+nput line 260.
 (pdftex.def)             Requested size: 292.77629pt x 396.61pt.
 File: images/hcmut.png Graphic file (type png)
 <use images/hcmut.png>
-Package pdftex.def Info: images/hcmut.png  used on input line 272.
+Package pdftex.def Info: images/hcmut.png  used on input line 268.
 (pdftex.def)             Requested size: 22.76204pt x 22.75928pt.
  [8 <./images/client_discover_activity_diagram.png>]
-<images/list_activity_diagram.png, id=196, 455.7025pt x 544.0325pt>
+<images/list_activity_diagram.png, id=206, 455.7025pt x 544.0325pt>
 File: images/list_activity_diagram.png Graphic file (type png)
 <use images/list_activity_diagram.png>
 Package pdftex.def Info: images/list_activity_diagram.png  used on input line 2
-75.
+71.
 (pdftex.def)             Requested size: 292.77629pt x 349.53271pt.
 File: images/hcmut.png Graphic file (type png)
 <use images/hcmut.png>
-Package pdftex.def Info: images/hcmut.png  used on input line 283.
+Package pdftex.def Info: images/hcmut.png  used on input line 279.
 (pdftex.def)             Requested size: 22.76204pt x 22.75928pt.
  [9 <./images/list_activity_diagram.png>]
-<images/discover_activity_diagram.png, id=204, 371.3875pt x 448.67625pt>
+<images/discover_activity_diagram.png, id=214, 371.3875pt x 448.67625pt>
 File: images/discover_activity_diagram.png Graphic file (type png)
 <use images/discover_activity_diagram.png>
 Package pdftex.def Info: images/discover_activity_diagram.png  used on input li
-ne 286.
+ne 282.
 (pdftex.def)             Requested size: 292.77629pt x 353.71095pt.
-<images/ping_activity_diagram.png, id=205, 541.02126pt x 592.2125pt>
+<images/ping_activity_diagram.png, id=215, 541.02126pt x 592.2125pt>
 File: images/ping_activity_diagram.png Graphic file (type png)
 <use images/ping_activity_diagram.png>
 Package pdftex.def Info: images/ping_activity_diagram.png  used on input line 2
-96.
+92.
 (pdftex.def)             Requested size: 292.77629pt x 320.48578pt.
 
 
@@ -1338,49 +1338,64 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 File: images/hcmut.png Graphic file (type png)
 <use images/hcmut.png>
-Package pdftex.def Info: images/hcmut.png  used on input line 302.
+Package pdftex.def Info: images/hcmut.png  used on input line 298.
 (pdftex.def)             Requested size: 22.76204pt x 22.75928pt.
 [10 <./images/discover_activity_diagram.png>]
 File: images/hcmut.png Graphic file (type png)
 <use images/hcmut.png>
-Package pdftex.def Info: images/hcmut.png  used on input line 319.
+Package pdftex.def Info: images/hcmut.png  used on input line 311.
 (pdftex.def)             Requested size: 22.76204pt x 22.75928pt.
  [11 <./images/ping_activity_diagram.png>]
+LaTeX Font Info:    Font shape `T5/cmtt/bx/it' in size <10> not available
+(Font)              Font shape `T5/cmtt/m/it' tried instead on input line 319.
+
+Overfull \hbox (0.76662pt too wide) in paragraph at lines 319--321
+\T5/cmtt/m/it/10 CLIENT_HOST = socket.gethostbyname_ex(socket.gethostname())[2]
+[X]\T5/cmr/m/n/10 . Trong
+ []
+
 File: images/hcmut.png Graphic file (type png)
 <use images/hcmut.png>
-Package pdftex.def Info: images/hcmut.png  used on input line 358.
+Package pdftex.def Info: images/hcmut.png  used on input line 344.
 (pdftex.def)             Requested size: 22.76204pt x 22.75928pt.
- [12] 
+[12]
+Overfull \hbox (16.58458pt too wide) in paragraph at lines 349--351
+\T5/cmr/m/n/10 V· source code cõa ch÷ìng tr¼nh, xem c¡c file \T5/cmtt/m/n/10 Cl
+ient.py, Client_for_Linux.py, Client_app.py,
+ []
+
+
 AED: lastpage setting LastPage
 File: images/hcmut.png Graphic file (type png)
 <use images/hcmut.png>
-Package pdftex.def Info: images/hcmut.png  used on input line 373.
+Package pdftex.def Info: images/hcmut.png  used on input line 368.
 (pdftex.def)             Requested size: 22.76204pt x 22.75928pt.
 [13] (ASS1_15.aux)
 Package rerunfilecheck Info: File `ASS1_15.out' has not changed.
-(rerunfilecheck)             Checksum: 48EEE0FF719578283B296836837CC18A;3819.
+(rerunfilecheck)             Checksum: ACCD6D406808A7DFC72092A01EA4DC95;4814.
  ) 
 Here is how much of TeX's memory you used:
- 25725 strings out of 475385
- 498363 string characters out of 2776906
- 797786 words of memory out of 3000000
- 46551 multiletter control sequences out of 15000+600000
- 484633 words of font info for 55 fonts, out of 8000000 for 9000
+ 25733 strings out of 475385
+ 498499 string characters out of 2776906
+ 797832 words of memory out of 3000000
+ 46556 multiletter control sequences out of 15000+600000
+ 484958 words of font info for 56 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,24n,89p,985b,579s stack positions out of 10000i,1000n,20000p,200000b,80000s
+ 84i,24n,89p,985b,601s stack positions out of 10000i,1000n,20000p,200000b,80000s
  <C:\Users\Admin\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm
 1000.pk><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnb
 x10.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnb
 x12.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnb
 xti10.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/v
-nr10.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vn
-r8.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnti
-10.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vntt
-10.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vntt
-8.pfb>
-Output written on ASS1_15.pdf (14 pages, 360326 bytes).
+nitt10.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/
+vnr10.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/v
+nr8.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnt
+i10.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnt
+t10.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnt
+t8.pfb>
+Output written on ASS1_15.pdf (14 pages, 380920 bytes).
 PDF statistics:
- 296 PDF objects out of 1000 (max. 8388607)
- 63 named destinations out of 1000 (max. 500000)
- 234 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 312 PDF objects out of 1000 (max. 8388607)
+ 65 named destinations out of 1000 (max. 500000)
+ 250 words of extra memory for PDF output out of 10000 (max. 10000000)
 

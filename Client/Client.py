@@ -4,7 +4,7 @@ from threading import Thread
 
 BUFFER_SIZE = 4096
 # Need to configure everytime server change IP
-SERVER_HOST = "192.168.1.28"
+SERVER_HOST = "169.254.21.55"
 SERVER_PORT = 5000
 SERVER_APP_PORT = 5001
 # Linux client will update host down the line, while Window user can get it right now

@@ -15,6 +15,8 @@
 \usepackage{graphics}
 \usepackage{geometry}
 \usepackage{setspace}
+\usepackage{caption}
+\usepackage{subcaption}
 \usepackage{epsfig}
 \usepackage{tikz}
 \usetikzlibrary{arrows,snakes,backgrounds}
@@ -113,8 +115,10 @@
 		\begin{table}[h]
 			\begin{tabular}{rrl}
 				\hspace{5 cm} & Giảng viên hỗ trợ: & Nguyễn Phương Duy\\
-				& Students: & Fullname of Student 1 - Student 1 ID numbers. \\
-				& & Fullname of Student 2 - Student 2 ID numbers. \\
+				& Sinh viên: & Nguyễn Thành Đạt - 2111018 \\
+				& & Tạ Nguyễn Tiến Dũng - 2110965 \\
+				& & Nguyễn Duy Hà - 2011130 \\
+				& & Nguyễn Việt Anh - 2112801
 			\end{tabular}
 		\end{table}
 		
@@ -140,16 +144,25 @@
 			\textbf{No.} & \textbf{Fullname} & \textbf{Student ID} & \textbf{Problems} & \textbf{Percentage of work}\\
 			\hline 
 			%%%%%Student 1%%%%%%%%%%
-			\multirow{3}{*}{1} & \multirow{3}{*}{Nguyễn Văn A} & \multirow{3}{*}{19181716} & - Relation \& Counting: 1, 2, 3& \multirow{3}{*}{30\%}\\
-			& &  & Bonus: 1, 2, 3. &\\
-			& &  & - Probability: 1, 2, 3. &\\
+			\multirow{3}{*}{1} & \multirow{3}{*}{Nguyễn Thành Đạt} & \multirow{3}{*}{2111018} & - Code chính & \multirow{3}{*}{30\%}\\
+			& &  & - Testing &\\
+			& &  & &\\
 			\hline 
 			%%%%%Student 2%%%%%%%%%%%
-			\multirow{3}{*}{2} & \multirow{3}{*}{Nguyễn Văn B} & \multirow{3}{*}{19181717} & - Relation \& Counting: 4, 5, 6& \multirow{3}{*}{20\%}\\
-			& &  & Bonus: 4, 5, 6. &\\
-			& &  & - Graph: 1, 2, 3, Bonus: 1, 2, 3. &\\
+			\multirow{3}{*}{2} & \multirow{3}{*}{Tạ Nguyễn Tiến Dũng} & \multirow{3}{*}{2110965} & - Vẽ sơ đồ, thiết kế hệ thống & \multirow{3}{*}{25\%}\\
+			& &  & &\\
+			& &  & &\\
 			\hline
 			%%%%%Student 3%%%%%%%%%%%
+			\multirow{3}{*}{2} & \multirow{3}{*}{Nguyễn Duy Hà} & \multirow{3}{*}{2011130} & - Hỗ trợ code & \multirow{3}{*}{20\%}\\
+			& &  & - Mô tả yêu cầu chương trình &\\
+			& &  & &\\
+			\hline
+			%%%%%Student 4%%%%%%%%%%%
+			\multirow{3}{*}{2} & \multirow{3}{*}{Nguyễn Việt Anh} & \multirow{3}{*}{2112801} & - Viết báo cáo & \multirow{3}{*}{25\%}\\
+			& &  & &\\
+			& &  & &\\
+			\hline
 		\end{tabular}
 	\end{center}
 	
@@ -236,12 +249,13 @@
 	$\indent$Thiết lập kết nối tương tự như \textbf{publish}. Tuy nhiên, trong lúc implement thực tế chương trình, nhóm có sửa đổi thứ tự hoạt động khác lược đồ một chút để thuận tiện cho việc code. Trong đó, sau khi client gửi yêu cầu fetch file, server sẽ kiểm tra file đó đã có trong local repo chưa. Nếu có rồi thì báo lỗi và kết thúc, nếu không thì tiếp tục use-case. Sau đó, server tiến hành tìm client có file được yêu cầu. Nếu không tìm được i.e file không nằm trong dữ liệu server thì báo lỗi và kết thúc, còn nếu tìm được thì gửi thông tin kết nối của target client cho client yêu cầu. Sau đó client yêu cầu thiết lập kết nối với target client và tiến hành truyền file. Cuối cùng, đóng mọi socket đã thiêt lập (cả với server và target client).
 	\begin{figure}[!h]
 		\begin{center}
-			\includegraphics[width=0.7\textwidth]{images/fetch_activity_diagram.png}
+			\includegraphics[width=0.6\textwidth]{images/fetch_activity_diagram.png}
 			\hspace{\textwidth}
 			\caption{Lược đồ hoạt động của câu lệnh \textbf{fetch \textit{fname}}}
 			\label{fetch_diagram}
 		\end{center}
 	\end{figure}
+	\newpage
 	\subsubsection{delete \textit{fname}}
 	$\indent$Thiếp lập kết nối tương tự hai câu lệnh trước. Server sẽ tiến hành kiểm tra xem file đó có trong local repo của client hay không. Trường hợp có thì tiến hành xóa khỏi dữ liệu server, trường hợp không thì đóng kết nối và kết thúc.
 	\begin{figure}[h]
@@ -343,7 +357,7 @@
 			\item \textbf{discover \textit{hostname}}: In ra danh sách file mà \textit{hostname} đã publish trên server.
 			\item \textbf{list}: In ra danh sách các client đã từng kết nối với server. Một client có thể kết hợp câu lệnh này với câu lệnh \textbf{discover \textit{hostname}} để tìm được file mình muốn chuyển.
 		\end{itemize}
-		\item Lưu ý khi sử dụng CLI: với các trường hợp tên file hoặc tên đường dẫn có chứa khoảng trống, khi nhập vào terminal phải đóng trong dấu ngoặc kép. Khi nhập tên file cần nhập luôn cả file extension (.txt, .doc, .png, ...). Đường dẫn file sẽ chỉ tới thư mục chứa file đó.
+		\item \textbf{Lưu ý khi sử dụng CLI:} với các trường hợp tên file hoặc tên đường dẫn có chứa khoảng trống, khi nhập vào terminal phải đóng trong dấu ngoặc kép. Khi nhập tên file cần nhập luôn cả file extension (.txt, .doc, .png, ...). Đường dẫn file sẽ là đường dẫn tuyệt đối, chỉ tới thư mục chứa file đó.
 	\end{enumerate}
 	\subsection{Source code}
 	$\indent$Protocol trao đổi Message qua lại giữa các client và server trong việc thực hiện các câu lệnh tuân theo cú pháp: (địa chỉ IP)*(Tên câu lệnh)*(Danh sách input của câu lệnh).\\
@@ -351,19 +365,150 @@
 	\subsection{Validation and evaluation}
 	$\indent$Tiến hành việc chạy thử và kiểm tra chương trình. Thực hiện theo các bước như trong phần \ref{Manual}, tiến hành chạy các câu lệnh
 	\subsubsection{Thêm và xóa file từ file system của client vào dữ liệu của server}
-	\subsubsection{Truyền file từ một client sang nhiều client khác}
+	Tiến hành publish ba file từ client lên server.
+	\begin{figure}[h]
+		\begin{center}
+			\includegraphics[width=0.8\textwidth]{tests/publish_command.png}
+			\hspace{\textwidth}
+			\caption{Câu lệnh \textbf{publish} từ client}
+			\label{publish_command}
+		\end{center}
+	\end{figure}
+	\begin{figure}[h]
+		\begin{center}
+			\begin{subfigure}[b]{0.35\textwidth}
+				\centering
+				\includegraphics[width=\textwidth]{tests/client_bf_publish.png}
+				\hspace{\textwidth}
+				\caption{Trước khi publish}
+			\end{subfigure}
+			\begin{subfigure}[b]{0.35\textwidth}
+				\centering
+				\includegraphics[width=\textwidth]{tests/client_af_publish.png}
+				\hspace{\textwidth}
+				\caption{Sau khi publish}
+			\end{subfigure}
+			\caption{Client trước và sau khi publish}
+		\end{center}
+	\end{figure}
+	\newpage
+	Kiểm tra file trên server.
+	\begin{figure}[h]
+		\begin{center}
+			\includegraphics[width=0.7\textwidth]{tests/server_dis_af_publish.png}
+			\hspace{\textwidth}
+			\caption{Câu lệnh \textbf{discover} từ server}
+			\label{server_dis1_command}
+		\end{center}
+	\end{figure}
+	\\
+	Sau đó, delete một file ra khỏi dữ liệu của server.
+	\begin{figure}[h]
+		\begin{center}
+			\includegraphics[width=0.7\textwidth]{tests/delete_command.png}
+			\hspace{\textwidth}
+			\caption{Câu lệnh \textbf{delete} từ client}
+			\label{delete_command}
+		\end{center}
+	\end{figure}
+	\newpage
+	Kiểm tra lại trên server.
+	\begin{figure}[h]
+		\begin{center}
+			\includegraphics[width=0.8\textwidth]{tests/server_dis_af_delete.png}
+			\hspace{\textwidth}
+			\caption{Câu lệnh \textbf{publish} từ client}
+			\label{server_dis2_command}
+		\end{center}
+	\end{figure}
+	\subsubsection{Truyền file từ một client sang client khác}
+	Tiếp tục từ trường hợp phần trước, lần này có thêm một client mới (client 2) cũng publish một file của mình lên server.
+	\begin{figure}[h]
+		\begin{center}
+			\begin{subfigure}[b]{0.4\textwidth}
+				\centering
+				\includegraphics[width=\textwidth]{tests/client_2_bf_publish.jpg}
+				\hspace{\textwidth}
+				\caption{Client 2 trước khi publish}
+			\end{subfigure}
+			\begin{subfigure}[b]{0.4\textwidth}
+				\centering
+				\includegraphics[width=\textwidth]{tests/client_2_af_publish.jpg}
+				\hspace{\textwidth}
+				\caption{Client 2 sau khi publish}
+			\end{subfigure}
+			\\
+			\begin{subfigure}[b]{0.8\textwidth}
+				\centering
+				\includegraphics[width=\textwidth]{tests/client_2_publish_command.jpg}
+				\hspace{\textwidth}
+				\caption{Câu lệnh \textbf{publish} của client 2}
+			\end{subfigure}
+			\caption{Client 2 thưc thi câu lệnh \textbf{publish}}
+		\end{center}
+	\end{figure}
+	\newpage
+	Client 1 list tìm ra các client đã kết nối và discover client 2 để tìm file cần fetch. Client 1 tiến hành fetch một file từ client 2.\\
+	\begin{figure}[h]
+		\begin{center}
+			\begin{subfigure}[b]{0.8\textwidth}				
+				\centering
+				\includegraphics[width=\textwidth]{tests/client_2_file_for_fetch.jpg}
+				\hspace{\textwidth}
+				\caption{File dùng để fetch của client 2}
+			\end{subfigure}
+			\\
+			\begin{subfigure}[b]{0.4\textwidth}
+				\centering
+				\includegraphics[width=\textwidth]{tests/client_1_list_dis.png}
+				\hspace{\textwidth}
+				\caption{Câu lệnh \textbf{list} và \textbf{discover} của client 1}
+			\end{subfigure}
+			\begin{subfigure}[b]{0.4\textwidth}
+				\centering
+				\includegraphics[width=\textwidth]{tests/client_1_fetch.png}
+				\hspace{\textwidth}
+				\caption{Câu lệnh \textbf{fetch} của client 1}
+			\end{subfigure}
+			\caption{Client 1 thực thi câu lệnh \textbf{list, discover, fetch}}
+		\end{center}
+	\end{figure}
+	\newpage
+	Tương tự, client 2 cũng list và discover client 1 để tìm file cần fetch. Có thể thấy sau khi fetch file, client 1 cũng đồng thời publish file đó lên cho server cùng biết. Sau đó, client 2 tiến hành fetch một file từ client 1.
+	\begin{figure}[h]
+		\begin{center}
+			\begin{subfigure}[b]{0.45\textwidth}
+				\centering
+				\includegraphics[width=\textwidth]{tests/client_1_file_for_fetch.png}
+				\hspace{\textwidth}
+				\caption{File dùng để fetch của client 1}
+			\end{subfigure}
+			\begin{subfigure}[b]{0.45\textwidth}
+				\centering
+				\includegraphics[width=\textwidth]{tests/client_2_fetch.jpg}
+				\hspace{\textwidth}
+				\caption{Câu lệnh \textbf{fetch} của client 1}
+			\end{subfigure}
+			\caption{Client 2 thực thi câu lệnh \textbf{fetch}}
+		\end{center}
+	\end{figure}
+	\newpage
 	\subsubsection{Ping từ server tới một client}
-	\begin{thebibliography}{80}
-		
-		
-		\bibitem{bib1}
-		...
-		
-		
-		\bibitem{bib2}
-		...
-		
-		
-	\end{thebibliography}
+	Ping từ server tới một \textit{hostname}. Có thể thấy, trong trường hợp \textit{hostname} đó chưa từng kết nối với server thì server sẽ không nhận ra được \textit{hostname} đó.
+	\begin{figure}[h]
+		\begin{center}
+			\includegraphics[width=0.7\textwidth]{tests/ping_command.png}
+			\hspace{\textwidth}
+			\caption{Câu lệnh \textbf{ping} từ server}
+			\label{ping_command}
+		\end{center}
+	\end{figure}
+	\subsubsection{Đánh giá theo mô tả trong bài tập lớn 1}
+	\begin{enumerate}
+		\item Chương trình đã xây dựng được một ứng dụng theo kiểu mạng P2P.
+		\item Các chức năng chính được nêu trong phần mô tả bài tập lớn đã được hiện thực và hoạt động bình thường.
+		\item Các client có thể gửi file tới nhiều client khác cùng một lúc.
+		\item Xây dựng được một command line interpreter với câu lệnh tương ứng cho bên phía server lẫn client.
+	\end{enumerate}
 \end{document}
 

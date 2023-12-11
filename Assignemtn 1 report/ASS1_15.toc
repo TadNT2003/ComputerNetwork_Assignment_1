@@ -4,9 +4,9 @@
 \contentsline {subsection}{\numberline {2.2}Project specifications and description}{2}{subsection.2.2}%
 \contentsline {section}{\numberline {3}System modeling and architecture design}{4}{section.3}%
 \contentsline {subsection}{\numberline {3.1}General use-case diagram}{4}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Activity diagram main functions}{4}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.2}Activity diagram main functions}{5}{subsection.3.2}%
 \contentsline {subsubsection}{\numberline {3.2.1}publish \textit {lname fname}}{5}{subsubsection.3.2.1}%
-\contentsline {subsubsection}{\numberline {3.2.2}fetch \textit {fname}}{5}{subsubsection.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.2}fetch \textit {fname}}{6}{subsubsection.3.2.2}%
 \contentsline {subsubsection}{\numberline {3.2.3}delete \textit {fname}}{7}{subsubsection.3.2.3}%
 \contentsline {subsubsection}{\numberline {3.2.4}discover \textit {hostname} (Client side)}{7}{subsubsection.3.2.4}%
 \contentsline {subsubsection}{\numberline {3.2.5}list}{8}{subsubsection.3.2.5}%
@@ -20,5 +20,6 @@
 \contentsline {subsection}{\numberline {4.2}Source code}{13}{subsection.4.2}%
 \contentsline {subsection}{\numberline {4.3}Validation and evaluation}{13}{subsection.4.3}%
 \contentsline {subsubsection}{\numberline {4.3.1}Thêm và xóa file từ file system của client vào dữ liệu của server}{13}{subsubsection.4.3.1}%
-\contentsline {subsubsection}{\numberline {4.3.2}Truyền file từ một client sang nhiều client khác}{13}{subsubsection.4.3.2}%
-\contentsline {subsubsection}{\numberline {4.3.3}Ping từ server tới một client}{13}{subsubsection.4.3.3}%
+\contentsline {subsubsection}{\numberline {4.3.2}Truyền file từ một client sang client khác}{15}{subsubsection.4.3.2}%
+\contentsline {subsubsection}{\numberline {4.3.3}Ping từ server tới một client}{18}{subsubsection.4.3.3}%
+\contentsline {subsubsection}{\numberline {4.3.4}Đánh giá theo mô tả trong bài tập lớn 1}{18}{subsubsection.4.3.4}%

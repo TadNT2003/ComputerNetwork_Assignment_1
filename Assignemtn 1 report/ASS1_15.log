@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.10) (preloaded format=pdflatex 2022.10.31)  9 DEC 2023 19:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.10) (preloaded format=pdflatex 2022.10.31)  11 DEC 2023 12:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -561,6 +561,11 @@ Package: iftex 2022/02/03 v1.0f TeX engine tests
 (C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/setspace\setspace.sty
 Package: setspace 2011/12/19 v6.7a set line spacing
 )
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/caption\subcaption.sty
+Package: subcaption 2022/01/07 v1.5 Sub-captions (AR)
+\c@subfigure=\count294
+\c@subtable=\count295
+)
 (C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/pgf/frontendlayer\tikz.
 sty
 (C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/pgf/basiclayer\pgf.sty
@@ -614,14 +619,14 @@ filtered.code.tex
 \pgf@yd=\dimen260
 \w@pgf@writea=\write3
 \r@pgf@reada=\read2
-\c@pgf@counta=\count294
-\c@pgf@countb=\count295
-\c@pgf@countc=\count296
-\c@pgf@countd=\count297
+\c@pgf@counta=\count296
+\c@pgf@countb=\count297
+\c@pgf@countc=\count298
+\c@pgf@countd=\count299
 \t@pgf@toka=\toks34
 \t@pgf@tokb=\toks35
 \t@pgf@tokc=\toks36
-\pgf@sys@id@count=\count298
+\pgf@sys@id@count=\count300
 
 (C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgf.c
 fg
@@ -640,8 +645,8 @@ File: pgfsys-common-pdf.def 2021/05/15 v3.1.9a (3.1.9a)
 (C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsy
 ssoftpath.code.tex
 File: pgfsyssoftpath.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgfsyssoftpath@smallbuffer@items=\count299
-\pgfsyssoftpath@bigbuffer@items=\count300
+\pgfsyssoftpath@smallbuffer@items=\count301
+\pgfsyssoftpath@bigbuffer@items=\count302
 )
 (C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsy
 sprotocol.code.tex
@@ -679,7 +684,7 @@ code.tex)
 (C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathparse
 r.code.tex
 \pgfmath@dimen=\dimen261
-\pgfmath@count=\count301
+\pgfmath@count=\count303
 \pgfmath@box=\box110
 \pgfmath@toks=\toks37
 \pgfmath@stack@operand=\toks38
@@ -705,7 +710,7 @@ ions.misc.code.tex)
 ions.integerarithmetics.code.tex)))
 (C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfloat
 .code.tex
-\c@pgfmathroundto@lastzeros=\count302
+\c@pgfmathroundto@lastzeros=\count304
 ))
 (C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfint.code.
 tex)
@@ -745,7 +750,7 @@ File: pgfcorescopes.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \pgfpic=\box111
 \pgf@hbox=\box112
 \pgf@layerbox@main=\box113
-\pgf@picture@serial@count=\count303
+\pgf@picture@serial@count=\count305
 )
 (C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
 egraphicstate.code.tex
@@ -780,8 +785,8 @@ File: pgfcorearrows.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 eshade.code.tex
 File: pgfcoreshade.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \pgf@max=\dimen285
-\pgf@sys@shading@range@num=\count304
-\pgf@shadingcount=\count305
+\pgf@sys@shading@range@num=\count306
+\pgf@shadingcount=\count307
 )
 (C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
 eimage.code.tex
@@ -854,7 +859,7 @@ Package: tikz 2021/05/15 v3.1.9a (3.1.9a)
 (C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibr
 aryplothandlers.code.tex
 File: pgflibraryplothandlers.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgf@plot@mark@count=\count306
+\pgf@plot@mark@count=\count308
 \pgfplotmarksize=\dimen290
 )
 \tikz@lastx=\dimen291
@@ -869,19 +874,19 @@ File: pgflibraryplothandlers.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \tikz@figbox@bg=\box117
 \tikz@tempbox=\box118
 \tikz@tempbox@bg=\box119
-\tikztreelevel=\count307
-\tikznumberofchildren=\count308
-\tikznumberofcurrentchild=\count309
-\tikz@fig@count=\count310
+\tikztreelevel=\count309
+\tikznumberofchildren=\count310
+\tikznumberofcurrentchild=\count311
+\tikz@fig@count=\count312
 
 (C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodule
 matrix.code.tex
 File: pgfmodulematrix.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgfmatrixcurrentrow=\count311
-\pgfmatrixcurrentcolumn=\count312
-\pgf@matrix@numberofcolumns=\count313
+\pgfmatrixcurrentrow=\count313
+\pgfmatrixcurrentcolumn=\count314
+\pgf@matrix@numberofcolumns=\count315
 )
-\tikz@expandcount=\count314
+\tikz@expandcount=\count316
 
 (C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
 z/libraries\tikzlibrarytopaths.code.tex
@@ -916,7 +921,7 @@ decorations.code.tex
 \pgfdecoratedinputsegmentcompleteddistance=\dimen302
 \pgfdecoratedinputsegmentremainingdistance=\dimen303
 \pgf@decorate@distancetomove=\dimen304
-\pgf@decorate@repeatstate=\count315
+\pgf@decorate@repeatstate=\count317
 \pgfdecorationsegmentamplitude=\dimen305
 \pgfdecorationsegmentlength=\dimen306
 )
@@ -990,11 +995,11 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 (C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty
 Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 ))
-\c@section@level=\count316
+\c@section@level=\count318
 )
 \@linkdim=\dimen307
-\Hy@linkcounter=\count317
-\Hy@pagecounter=\count318
+\Hy@linkcounter=\count319
+\Hy@pagecounter=\count320
  (C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def
 File: pd1enc.def 2022-09-22 v7.00t Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
@@ -1005,7 +1010,7 @@ Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 (C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/generic/etexcmds\etexcmds.sty
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
-\Hy@SavedSpaceFactor=\count319
+\Hy@SavedSpaceFactor=\count321
  (C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def
 File: puenc.def 2022-09-22 v7.00t Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
@@ -1018,7 +1023,7 @@ Package hyperref Info: Plain pages OFF on input line 4177.
 Package hyperref Info: Backreferencing OFF on input line 4182.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4410.
-\c@Hy@tempcnt=\count320
+\c@Hy@tempcnt=\count322
 
 (C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
 \Urlmuskip=\muskip17
@@ -1035,7 +1040,7 @@ Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
-\Fld@menulength=\count321
+\Fld@menulength=\count323
 \Field@Width=\dimen309
 \Fld@charsize=\dimen310
 Package hyperref Info: Hyper figures OFF on input line 6027.
@@ -1050,9 +1055,9 @@ Package hyperref Info: PDF/A mode OFF on input line 6057.
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
 )
-\Hy@abspage=\count322
-\c@Item=\count323
-\c@Hfootnote=\count324
+\Hy@abspage=\count324
+\c@Item=\count325
+\c@Hfootnote=\count326
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
 (C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex.def
@@ -1063,8 +1068,8 @@ Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend pac
 kage
 with kernel methods
 )
-\Fld@listcount=\count325
-\c@bookmark@seq@number=\count326
+\Fld@listcount=\count327
+\c@bookmark@seq@number=\count328
 
 (C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\rerunfil
 echeck.sty
@@ -1079,54 +1084,54 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip88
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 22.
-\c@theorem=\count327
-\c@property=\count328
-\c@proposition=\count329
-\c@subsubsubsection=\count330
+Package hyperref Info: Option `colorlinks' set `true' on input line 24.
+\c@theorem=\count329
+\c@property=\count330
+\c@proposition=\count331
+\c@subsubsubsection=\count332
 
 (C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
 tex.def
 File: l3backend-pdftex.def 2022-09-28 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count331
+\l__color_backend_stack_int=\count333
 \l__pdf_internal_box=\box123
 ) (ASS1_15.aux)
 \openout1 = `ASS1_15.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 77.
-LaTeX Font Info:    ... okay on input line 77.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 77.
-LaTeX Font Info:    ... okay on input line 77.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 77.
-LaTeX Font Info:    ... okay on input line 77.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 77.
-LaTeX Font Info:    ... okay on input line 77.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 77.
-LaTeX Font Info:    ... okay on input line 77.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 77.
-LaTeX Font Info:    ... okay on input line 77.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 77.
-LaTeX Font Info:    ... okay on input line 77.
-LaTeX Font Info:    Checking defaults for T5/cmr/m/n on input line 77.
-LaTeX Font Info:    ... okay on input line 77.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 77.
-LaTeX Font Info:    ... okay on input line 77.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 77.
-LaTeX Font Info:    ... okay on input line 77.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for T5/cmr/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
 
 (C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
 ii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count332
+\scratchcounter=\count334
 \scratchdimen=\dimen311
 \scratchbox=\box124
-\nofMPsegments=\count333
-\nofMParguments=\count334
+\nofMPsegments=\count335
+\nofMParguments=\count336
 \everyMPshowfont=\toks42
-\MPscratchCnt=\count335
+\MPscratchCnt=\count337
 \MPscratchDim=\dimen312
-\MPnumerator=\count336
-\makeMPintoPDFobject=\count337
+\MPnumerator=\count338
+\makeMPintoPDFobject=\count339
 \everyMPtoPDFconversion=\toks43
 )
 (C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
@@ -1141,7 +1146,7 @@ File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             https://www.ctan.org/pkg/pageslts
-(lastpage)             ! on input line 77.
+(lastpage)             ! on input line 79.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: rotating package is loaded.
@@ -1181,39 +1186,34 @@ Package caption Info: End \AtBeginDocument code.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring ON on input line 77.
+Package hyperref Info: Link coloring ON on input line 79.
 (ASS1_15.out) (ASS1_15.out)
 \@outlinefile=\write4
 \openout4 = `ASS1_15.out'.
 
-<images/hcmut.png, id=102, 272.01625pt x 277.035pt>
+<images/hcmut.png, id=106, 272.01625pt x 277.035pt>
 File: images/hcmut.png Graphic file (type png)
 <use images/hcmut.png>
-Package pdftex.def Info: images/hcmut.png  used on input line 90.
+Package pdftex.def Info: images/hcmut.png  used on input line 92.
 (pdftex.def)             Requested size: 85.35826pt x 86.93253pt.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 98.
-
+LaTeX Font Info:    Trying to load font information for U+msa on input line 100
+.
 
 (C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 98.
-
+LaTeX Font Info:    Trying to load font information for U+msb on input line 100
+.
 
 (C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+lasy on input line 98
-.
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 10
+0.
 
 (C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/base\ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
-)
-Overfull \hbox (47.89818pt too wide) in paragraph at lines 114--119
-[][] 
- []
-
-[1
+) [1
 
 {C:/Users/Admin/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./images/hcm
 ut.png>] (ASS1_15.toc)
@@ -1222,115 +1222,115 @@ ut.png>] (ASS1_15.toc)
 
 File: images/hcmut.png Graphic file (type png)
 <use images/hcmut.png>
-Package pdftex.def Info: images/hcmut.png  used on input line 131.
+Package pdftex.def Info: images/hcmut.png  used on input line 135.
 (pdftex.def)             Requested size: 22.76204pt x 22.75928pt.
 LaTeX Font Info:    Trying to load font information for T5+cmtt on input line 1
-31.
+35.
 
 (C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/vntex\t5cmtt.fd
 File: t5cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `T5/cmtt/bx/n' in size <10> not available
-(Font)              Font shape `T5/cmtt/m/n' tried instead on input line 131.
+(Font)              Font shape `T5/cmtt/m/n' tried instead on input line 135.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.131 	\newpage
+l.135 	\newpage
                 [1]
-Overfull \hbox (16.42351pt too wide) in paragraph at lines 138--154
+Overfull \hbox (42.12556pt too wide) in paragraph at lines 142--167
  [] 
  []
 
 File: images/hcmut.png Graphic file (type png)
 <use images/hcmut.png>
-Package pdftex.def Info: images/hcmut.png  used on input line 184.
+Package pdftex.def Info: images/hcmut.png  used on input line 193.
 (pdftex.def)             Requested size: 22.76204pt x 22.75928pt.
 [2]
-<images/Gen_usecase_diagram.png, id=156, 449.42906pt x 350.05782pt>
+File: images/hcmut.png Graphic file (type png)
+<use images/hcmut.png>
+Package pdftex.def Info: images/hcmut.png  used on input line 221.
+(pdftex.def)             Requested size: 22.76204pt x 22.75928pt.
+ [3]
+<images/Gen_usecase_diagram.png, id=170, 449.42906pt x 350.05782pt>
 File: images/Gen_usecase_diagram.png Graphic file (type png)
 <use images/Gen_usecase_diagram.png>
-Package pdftex.def Info: images/Gen_usecase_diagram.png  used on input line 217
+Package pdftex.def Info: images/Gen_usecase_diagram.png  used on input line 230
 .
 (pdftex.def)             Requested size: 418.25368pt x 325.79076pt.
 File: images/hcmut.png Graphic file (type png)
 <use images/hcmut.png>
-Package pdftex.def Info: images/hcmut.png  used on input line 223.
+Package pdftex.def Info: images/hcmut.png  used on input line 238.
 (pdftex.def)             Requested size: 22.76204pt x 22.75928pt.
- [3]
-<images/publish_activity_diagram.png, id=166, 527.9725pt x 867.24pt>
+ [4 <./images/Gen_usecase_diagram.png>]
+<images/publish_activity_diagram.png, id=178, 527.9725pt x 867.24pt>
 File: images/publish_activity_diagram.png Graphic file (type png)
 <use images/publish_activity_diagram.png>
 Package pdftex.def Info: images/publish_activity_diagram.png  used on input lin
-e 229.
+e 242.
 (pdftex.def)             Requested size: 209.12683pt x 343.50221pt.
-File: images/hcmut.png Graphic file (type png)
-<use images/hcmut.png>
-Package pdftex.def Info: images/hcmut.png  used on input line 235.
-(pdftex.def)             Requested size: 22.76204pt x 22.75928pt.
- [4 <./images/Gen_usecase_diagram.png>]
-<images/fetch_activity_diagram.png, id=174, 757.83125pt x 1120.185pt>
+<images/fetch_activity_diagram.png, id=179, 757.83125pt x 1120.185pt>
 File: images/fetch_activity_diagram.png Graphic file (type png)
 <use images/fetch_activity_diagram.png>
 Package pdftex.def Info: images/fetch_activity_diagram.png  used on input line 
-239.
-(pdftex.def)             Requested size: 292.77629pt x 432.76816pt.
+252.
+(pdftex.def)             Requested size: 250.95476pt x 370.94414pt.
 File: images/hcmut.png Graphic file (type png)
 <use images/hcmut.png>
-Package pdftex.def Info: images/hcmut.png  used on input line 245.
+Package pdftex.def Info: images/hcmut.png  used on input line 258.
 (pdftex.def)             Requested size: 22.76204pt x 22.75928pt.
  [5 <./images/publish_activity_diagram.png>]
-<images/delete_activity_diagram.png, id=182, 527.9725pt x 592.2125pt>
+File: images/hcmut.png Graphic file (type png)
+<use images/hcmut.png>
+Package pdftex.def Info: images/hcmut.png  used on input line 258.
+(pdftex.def)             Requested size: 22.76204pt x 22.75928pt.
+ [6 <./images/fetch_activity_diagram.png>]
+<images/delete_activity_diagram.png, id=195, 527.9725pt x 592.2125pt>
 File: images/delete_activity_diagram.png Graphic file (type png)
 <use images/delete_activity_diagram.png>
 Package pdftex.def Info: images/delete_activity_diagram.png  used on input line
- 249.
+ 263.
 (pdftex.def)             Requested size: 292.77629pt x 328.39265pt.
 File: images/hcmut.png Graphic file (type png)
 <use images/hcmut.png>
-Package pdftex.def Info: images/hcmut.png  used on input line 255.
-(pdftex.def)             Requested size: 22.76204pt x 22.75928pt.
- [6 <./images/fetch_activity_diagram.png>]
-File: images/hcmut.png Graphic file (type png)
-<use images/hcmut.png>
-Package pdftex.def Info: images/hcmut.png  used on input line 257.
+Package pdftex.def Info: images/hcmut.png  used on input line 271.
 (pdftex.def)             Requested size: 22.76204pt x 22.75928pt.
  [7 <./images/delete_activity_diagram.png>]
-<images/client_discover_activity_diagram.png, id=198, 455.7025pt x 617.30624pt>
+<images/client_discover_activity_diagram.png, id=203, 455.7025pt x 617.30624pt>
 
 File: images/client_discover_activity_diagram.png Graphic file (type png)
 <use images/client_discover_activity_diagram.png>
 Package pdftex.def Info: images/client_discover_activity_diagram.png  used on i
-nput line 260.
+nput line 274.
 (pdftex.def)             Requested size: 292.77629pt x 396.61pt.
 File: images/hcmut.png Graphic file (type png)
 <use images/hcmut.png>
-Package pdftex.def Info: images/hcmut.png  used on input line 268.
+Package pdftex.def Info: images/hcmut.png  used on input line 282.
 (pdftex.def)             Requested size: 22.76204pt x 22.75928pt.
  [8 <./images/client_discover_activity_diagram.png>]
-<images/list_activity_diagram.png, id=206, 455.7025pt x 544.0325pt>
+<images/list_activity_diagram.png, id=211, 455.7025pt x 544.0325pt>
 File: images/list_activity_diagram.png Graphic file (type png)
 <use images/list_activity_diagram.png>
 Package pdftex.def Info: images/list_activity_diagram.png  used on input line 2
-71.
+85.
 (pdftex.def)             Requested size: 292.77629pt x 349.53271pt.
 File: images/hcmut.png Graphic file (type png)
 <use images/hcmut.png>
-Package pdftex.def Info: images/hcmut.png  used on input line 279.
+Package pdftex.def Info: images/hcmut.png  used on input line 293.
 (pdftex.def)             Requested size: 22.76204pt x 22.75928pt.
  [9 <./images/list_activity_diagram.png>]
-<images/discover_activity_diagram.png, id=214, 371.3875pt x 448.67625pt>
+<images/discover_activity_diagram.png, id=219, 371.3875pt x 448.67625pt>
 File: images/discover_activity_diagram.png Graphic file (type png)
 <use images/discover_activity_diagram.png>
 Package pdftex.def Info: images/discover_activity_diagram.png  used on input li
-ne 282.
+ne 296.
 (pdftex.def)             Requested size: 292.77629pt x 353.71095pt.
-<images/ping_activity_diagram.png, id=215, 541.02126pt x 592.2125pt>
+<images/ping_activity_diagram.png, id=220, 541.02126pt x 592.2125pt>
 File: images/ping_activity_diagram.png Graphic file (type png)
 <use images/ping_activity_diagram.png>
-Package pdftex.def Info: images/ping_activity_diagram.png  used on input line 2
-92.
+Package pdftex.def Info: images/ping_activity_diagram.png  used on input line 3
+06.
 (pdftex.def)             Requested size: 292.77629pt x 320.48578pt.
 
 
@@ -1338,64 +1338,196 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 File: images/hcmut.png Graphic file (type png)
 <use images/hcmut.png>
-Package pdftex.def Info: images/hcmut.png  used on input line 298.
+Package pdftex.def Info: images/hcmut.png  used on input line 312.
 (pdftex.def)             Requested size: 22.76204pt x 22.75928pt.
 [10 <./images/discover_activity_diagram.png>]
 File: images/hcmut.png Graphic file (type png)
 <use images/hcmut.png>
-Package pdftex.def Info: images/hcmut.png  used on input line 311.
+Package pdftex.def Info: images/hcmut.png  used on input line 325.
 (pdftex.def)             Requested size: 22.76204pt x 22.75928pt.
  [11 <./images/ping_activity_diagram.png>]
 LaTeX Font Info:    Font shape `T5/cmtt/bx/it' in size <10> not available
-(Font)              Font shape `T5/cmtt/m/it' tried instead on input line 319.
+(Font)              Font shape `T5/cmtt/m/it' tried instead on input line 333.
 
-Overfull \hbox (0.76662pt too wide) in paragraph at lines 319--321
+Overfull \hbox (0.76662pt too wide) in paragraph at lines 333--335
 \T5/cmtt/m/it/10 CLIENT_HOST = socket.gethostbyname_ex(socket.gethostname())[2]
 [X]\T5/cmr/m/n/10 . Trong
  []
 
 File: images/hcmut.png Graphic file (type png)
 <use images/hcmut.png>
-Package pdftex.def Info: images/hcmut.png  used on input line 344.
+Package pdftex.def Info: images/hcmut.png  used on input line 358.
 (pdftex.def)             Requested size: 22.76204pt x 22.75928pt.
 [12]
-Overfull \hbox (16.58458pt too wide) in paragraph at lines 349--351
+Overfull \hbox (16.58458pt too wide) in paragraph at lines 363--365
 \T5/cmr/m/n/10 V· source code cõa ch÷ìng tr¼nh, xem c¡c file \T5/cmtt/m/n/10 Cl
 ient.py, Client_for_Linux.py, Client_app.py,
  []
 
+<tests/publish_command.png, id=251, 991.3035pt x 237.2865pt>
+File: tests/publish_command.png Graphic file (type png)
+<use tests/publish_command.png>
+Package pdftex.def Info: tests/publish_command.png  used on input line 371.
+(pdftex.def)             Requested size: 334.60422pt x 80.0934pt.
+<tests/client_bf_publish.png, id=252, 255.95625pt x 365.56575pt>
+File: tests/client_bf_publish.png Graphic file (type png)
+<use tests/client_bf_publish.png>
+Package pdftex.def Info: tests/client_bf_publish.png  used on input line 381.
+(pdftex.def)             Requested size: 146.39133pt x 209.08305pt.
+<tests/client_af_publish.png, id=253, 249.93375pt x 367.97475pt>
+File: tests/client_af_publish.png Graphic file (type png)
+<use tests/client_af_publish.png>
+Package pdftex.def Info: tests/client_af_publish.png  used on input line 387.
+(pdftex.def)             Requested size: 146.39133pt x 215.53668pt.
 
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+File: images/hcmut.png Graphic file (type png)
+<use images/hcmut.png>
+Package pdftex.def Info: images/hcmut.png  used on input line 394.
+(pdftex.def)             Requested size: 22.76204pt x 22.75928pt.
+[13 <./tests/publish_command.png>]
+<tests/server_dis_af_publish.png, id=262, 723.9045pt x 240.9pt>
+File: tests/server_dis_af_publish.png Graphic file (type png)
+<use tests/server_dis_af_publish.png>
+Package pdftex.def Info: tests/server_dis_af_publish.png  used on input line 39
+8.
+(pdftex.def)             Requested size: 292.77629pt x 97.43163pt.
+<tests/delete_command.png, id=263, 673.3155pt x 121.05225pt>
+File: tests/delete_command.png Graphic file (type png)
+<use tests/delete_command.png>
+Package pdftex.def Info: tests/delete_command.png  used on input line 408.
+(pdftex.def)             Requested size: 292.77629pt x 52.63698pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+File: images/hcmut.png Graphic file (type png)
+<use images/hcmut.png>
+Package pdftex.def Info: images/hcmut.png  used on input line 414.
+(pdftex.def)             Requested size: 22.76204pt x 22.75928pt.
+[14 <./tests/client_bf_publish.png> <./tests/client_af_publish.png> <./tests/se
+rver_dis_af_publish.png>]
+<tests/server_dis_af_delete.png, id=275, 599.841pt x 123.46124pt>
+File: tests/server_dis_af_delete.png Graphic file (type png)
+<use tests/server_dis_af_delete.png>
+Package pdftex.def Info: tests/server_dis_af_delete.png  used on input line 418
+.
+(pdftex.def)             Requested size: 334.60422pt x 68.87218pt.
+<tests/client_2_bf_publish.jpg, id=276, 810.02625pt x 633.36626pt>
+File: tests/client_2_bf_publish.jpg Graphic file (type jpg)
+<use tests/client_2_bf_publish.jpg>
+Package pdftex.def Info: tests/client_2_bf_publish.jpg  used on input line 430.
+
+(pdftex.def)             Requested size: 167.2989pt x 130.80736pt.
+<tests/client_2_af_publish.jpg, id=277, 809.0225pt x 656.4525pt>
+File: tests/client_2_af_publish.jpg Graphic file (type jpg)
+<use tests/client_2_af_publish.jpg>
+Package pdftex.def Info: tests/client_2_af_publish.jpg  used on input line 436.
+
+(pdftex.def)             Requested size: 167.2989pt x 135.74557pt.
+<tests/client_2_publish_command.jpg, id=278, 1661.20625pt x 464.73625pt>
+File: tests/client_2_publish_command.jpg Graphic file (type jpg)
+<use tests/client_2_publish_command.jpg>
+Package pdftex.def Info: tests/client_2_publish_command.jpg  used on input line
+ 443.
+(pdftex.def)             Requested size: 334.60422pt x 93.60509pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+File: images/hcmut.png Graphic file (type png)
+<use images/hcmut.png>
+Package pdftex.def Info: images/hcmut.png  used on input line 450.
+(pdftex.def)             Requested size: 22.76204pt x 22.75928pt.
+[15 <./tests/delete_command.png> <./tests/server_dis_af_delete.png>]
+<tests/client_2_file_for_fetch.jpg, id=288, 2569.6pt x 1606.0pt>
+File: tests/client_2_file_for_fetch.jpg Graphic file (type jpg)
+<use tests/client_2_file_for_fetch.jpg>
+Package pdftex.def Info: tests/client_2_file_for_fetch.jpg  used on input line 
+456.
+(pdftex.def)             Requested size: 334.60422pt x 209.1059pt.
+<tests/client_1_list_dis.png, id=289, 1156.32pt x 650.43pt>
+File: tests/client_1_list_dis.png Graphic file (type png)
+<use tests/client_1_list_dis.png>
+Package pdftex.def Info: tests/client_1_list_dis.png  used on input line 463.
+(pdftex.def)             Requested size: 167.2989pt x 94.09654pt.
+<tests/client_1_fetch.png, id=290, 1156.32pt x 650.43pt>
+File: tests/client_1_fetch.png Graphic file (type png)
+<use tests/client_1_fetch.png>
+Package pdftex.def Info: tests/client_1_fetch.png  used on input line 469.
+(pdftex.def)             Requested size: 167.2989pt x 94.09654pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+File: images/hcmut.png Graphic file (type png)
+<use images/hcmut.png>
+Package pdftex.def Info: images/hcmut.png  used on input line 476.
+(pdftex.def)             Requested size: 22.76204pt x 22.75928pt.
+[16 <./tests/client_2_bf_publish.jpg> <./tests/client_2_af_publish.jpg> <./test
+s/client_2_publish_command.jpg>]
+<tests/client_1_file_for_fetch.png, id=298, 1156.32pt x 650.43pt>
+File: tests/client_1_file_for_fetch.png Graphic file (type png)
+<use tests/client_1_file_for_fetch.png>
+Package pdftex.def Info: tests/client_1_file_for_fetch.png  used on input line 
+482.
+(pdftex.def)             Requested size: 188.21288pt x 105.8673pt.
+<tests/client_2_fetch.jpg, id=299, 2569.6pt x 1606.0pt>
+File: tests/client_2_fetch.jpg Graphic file (type jpg)
+<use tests/client_2_fetch.jpg>
+Package pdftex.def Info: tests/client_2_fetch.jpg  used on input line 488.
+(pdftex.def)             Requested size: 188.21288pt x 117.62666pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+File: images/hcmut.png Graphic file (type png)
+<use images/hcmut.png>
+Package pdftex.def Info: images/hcmut.png  used on input line 495.
+(pdftex.def)             Requested size: 22.76204pt x 22.75928pt.
+[17 <./tests/client_2_file_for_fetch.jpg> <./tests/client_1_list_dis.png> <./te
+sts/client_1_fetch.png>]
+<tests/ping_command.png, id=308, 603.4545pt x 239.6955pt>
+File: tests/ping_command.png Graphic file (type png)
+<use tests/ping_command.png>
+Package pdftex.def Info: tests/ping_command.png  used on input line 500.
+(pdftex.def)             Requested size: 292.77629pt x 116.2924pt.
+ 
 AED: lastpage setting LastPage
 File: images/hcmut.png Graphic file (type png)
 <use images/hcmut.png>
-Package pdftex.def Info: images/hcmut.png  used on input line 368.
+Package pdftex.def Info: images/hcmut.png  used on input line 513.
 (pdftex.def)             Requested size: 22.76204pt x 22.75928pt.
-[13] (ASS1_15.aux)
+[18 <./tests/client_1_file_for_fetch.png> <./tests/client_2_fetch.jpg> <./tests
+/ping_command.png>] (ASS1_15.aux)
 Package rerunfilecheck Info: File `ASS1_15.out' has not changed.
-(rerunfilecheck)             Checksum: ACCD6D406808A7DFC72092A01EA4DC95;4814.
+(rerunfilecheck)             Checksum: 6775B613B6D6FBB05BD328255DEBE738;5092.
  ) 
 Here is how much of TeX's memory you used:
- 25733 strings out of 475385
- 498499 string characters out of 2776906
- 797832 words of memory out of 3000000
- 46556 multiletter control sequences out of 15000+600000
- 484958 words of font info for 56 fonts, out of 8000000 for 9000
+ 25971 strings out of 475385
+ 504298 string characters out of 2776906
+ 801756 words of memory out of 3000000
+ 46758 multiletter control sequences out of 15000+600000
+ 486912 words of font info for 58 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,24n,89p,985b,601s stack positions out of 10000i,1000n,20000p,200000b,80000s
+ 84i,24n,89p,985b,625s stack positions out of 10000i,1000n,20000p,200000b,80000s
  <C:\Users\Admin\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm
 1000.pk><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnb
 x10.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnb
 x12.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnb
-xti10.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/v
-nitt10.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/
-vnr10.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/v
-nr8.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnt
-i10.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnt
-t10.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnt
-t8.pfb>
-Output written on ASS1_15.pdf (14 pages, 380920 bytes).
+x9.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnbx
+ti10.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vn
+itt10.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/v
+nr10.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vn
+r8.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnr9
+.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnti10
+.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vntt10
+.pfb><C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vntt8.
+pfb>
+Output written on ASS1_15.pdf (19 pages, 3391192 bytes).
 PDF statistics:
- 312 PDF objects out of 1000 (max. 8388607)
- 65 named destinations out of 1000 (max. 500000)
- 250 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 392 PDF objects out of 1000 (max. 8388607)
+ 81 named destinations out of 1000 (max. 500000)
+ 333 words of extra memory for PDF output out of 10000 (max. 10000000)
 
